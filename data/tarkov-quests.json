@@ -1,0 +1,625 @@
+[
+  {
+    "id": "debut",
+    "name_fr": "Débuts",
+    "name_en": "Debut",
+    "objectives": [
+      "Éliminer 5 Scavs sur Customs",
+      "Remettre 2 fusils à pompe MP-133"
+    ],
+    "reward": "+1 700 XP · Prapor +0.08 · 15 000 Roubles · Pistolet PM 9x18 · Débloque l'achat de l'AKS-74U (niveau 1)"
+  },
+  {
+    "id": "luxurious-life",
+    "name_fr": "Vie luxueuse",
+    "name_en": "Luxurious life",
+    "objectives": [
+      "Localiser la boutique d'alcools sur Ground Zero",
+      "Localiser et récupérer la bouteille de vin",
+      "Extraire",
+      "Remettre la bouteille à Prapor"
+    ],
+    "reward": "Carabine Molot VPO-136 \"Vepr-KM\" 7.62x39 · 5 packs de munitions · 1 chargeur AK 30 coups (niveau 1, après Débuts, débloque Vérification des antécédents)"
+  },
+  {
+    "id": "background-check",
+    "name_fr": "Vérification des antécédents",
+    "name_en": "Background Check",
+    "objectives": [
+      "Localiser et récupérer la montre de poche en bronze sur Customs",
+      "La remettre à Prapor",
+      "Obtenir la clé du camion-citerne"
+    ],
+    "reward": "+1 800 XP · Prapor +0.03 · 15 000 Roubles · Fusil SKS Default · 3 munitions FMJ (niveau 2, après Vie luxueuse, débloque Pique-nique sous les balles)"
+  },
+  {
+    "id": "delivery-from-the-past",
+    "name_fr": "Livraison du passé",
+    "name_en": "Delivery from the past",
+    "objectives": [
+      "Poser la clé USB sécurisée dans la zone industrielle de Factory",
+      "Récupérer la seconde clé USB dans le bureau",
+      "Extraire en vie"
+    ],
+    "reward": "XP · Roubles · Réputation Prapor"
+  },
+  {
+    "id": "search-mission",
+    "name_fr": "Mission de recherche",
+    "name_en": "Search Mission",
+    "objectives": [
+      "Localiser le convoi disparu de Prapor sur Woods",
+      "Localiser le camp temporaire USEC",
+      "Survivre et extraire"
+    ],
+    "reward": "+2 000 XP · Prapor +0.04 · 22 000 Roubles · Boussole EYE MK2 (débloqué niveau 5, après Débuts)"
+  },
+  {
+    "id": "oil-run",
+    "name_fr": "Ravitaillement en carburant",
+    "name_en": "Oil Run",
+    "objectives": [
+      "Marquer les 4 citernes de carburant sur Customs avec un marqueur MS2000",
+      "Extraire"
+    ],
+    "reward": "+2 800 XP · Prapor +0.03 · Jaeger -0.01 · 30 000 Roubles · Réservoir de carburant expéditionnaire · 2 marqueurs MS2000 (niveau 5, après Livraison du passé)"
+  },
+  {
+    "id": "bad-rep-evidence",
+    "name_fr": "Preuves compromettantes",
+    "name_en": "Bad rep evidence",
+    "objectives": [
+      "Récupérer le Dossier sécurisé 0031 dans une cabane portable sur Customs",
+      "Survivre et extraire avec le dossier",
+      "Remettre le dossier à Prapor"
+    ],
+    "reward": "+4 100 XP · Prapor +0.03 · 35 000 Roubles (niveau 6)"
+  },
+  {
+    "id": "belka-and-strelka",
+    "name_fr": "Belka et Strelka",
+    "name_en": "Belka and Strelka",
+    "objectives": [
+      "Survivre et extraire de Customs par le Passage Ferroviaire"
+    ],
+    "reward": "+8 200 XP · Prapor +0.01 · 44 000 Roubles · 5 grenades RGD-5 (niveau 5)"
+  },
+  {
+    "id": "ice-cream-cones",
+    "name_fr": "Cornets de glace",
+    "name_en": "Ice cream cones",
+    "objectives": [
+      "Trouver un chargeur AK-74 5.45x39 6L31 60 coups en raid",
+      "Obtenir la clé du bunker dans le dortoir d'un employé TerraGroup (optionnel)",
+      "Localiser le bunker fermé sur Woods (optionnel)",
+      "Remettre les objets à Prapor"
+    ],
+    "reward": "+5 200 XP (niveau 9, débloque Facteur Pat partie 1 et Secouer le caissier)"
+  },
+  {
+    "id": "shaking-up-the-teller",
+    "name_fr": "Secouer le caissier",
+    "name_en": "Shaking up the Teller",
+    "objectives": [
+      "Trouver la mallette sécurisée dans la chambre 203 du dortoir sur Customs",
+      "Remettre la mallette à Prapor"
+    ],
+    "reward": "5 900 XP (niveau 15)"
+  },
+  {
+    "id": "postman-pat-part-1",
+    "name_fr": "Facteur Pat — partie 1",
+    "name_en": "Postman Pat. Part 1",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "possessor",
+    "name_fr": "Possesseur",
+    "name_en": "Possessor",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "the-bunker",
+    "name_fr": "Le Bunker",
+    "name_en": "The Bunker",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "the-bunker-part-2",
+    "name_fr": "Le Bunker — partie 2",
+    "name_en": "The bunker. Part 2",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "youve-got-mail",
+    "name_fr": "Vous avez du courrier",
+    "name_en": "You've Got Mail",
+    "objectives": [
+      "Récupérer le courrier recommandé sur Streets of Tarkov (près de l'hôtel Pinewood)",
+      "Remettre la lettre à Prapor"
+    ],
+    "reward": "4 800 XP · Prapor +0.02 · 29 470 Roubles · Casque 6B47 Ratnik-BSh · 30 munitions 5.45x39mm BP"
+  },
+  {
+    "id": "no-place-for-renegades",
+    "name_fr": "Pas de place pour les renégats",
+    "name_en": "No Place for Renegades",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "the-punisher-part-1",
+    "name_fr": "Le Justicier — partie 1",
+    "name_en": "The Punisher - Part 1",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "the-punisher-part-2",
+    "name_fr": "Le Justicier — partie 2",
+    "name_en": "The Punisher - Part 2",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "the-punisher-part-3",
+    "name_fr": "Le Justicier — partie 3",
+    "name_en": "The Punisher - Part 3",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "easy-job",
+    "name_fr": "Travail facile",
+    "name_en": "Easy Job",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "reconnaissance",
+    "name_fr": "Reconnaissance",
+    "name_en": "Reconnaissance",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "documents",
+    "name_fr": "Documents",
+    "name_en": "Documents",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "the-punisher-part-4",
+    "name_fr": "Le Justicier — partie 4",
+    "name_en": "The Punisher - Part 4",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "the-punisher-part-5",
+    "name_fr": "Le Justicier — partie 5",
+    "name_en": "The Punisher - Part 5",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "grenadier",
+    "name_fr": "Grenadier",
+    "name_en": "Grenadier",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "the-punisher-part-6",
+    "name_fr": "Le Justicier — partie 6",
+    "name_en": "The Punisher. Part 6",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "anesthesia",
+    "name_fr": "Anesthésie",
+    "name_en": "Anesthesia",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "regulated-materials",
+    "name_fr": "Matériaux réglementés",
+    "name_en": "Regulated Materials",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "the-tarkov-import",
+    "name_fr": "L'import de Tarkov",
+    "name_en": "The Tarkov Import",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "power-of-persuasion",
+    "name_fr": "Pouvoir de persuasion",
+    "name_en": "Power of Persuasion",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "job-for-a-patriot",
+    "name_fr": "Un travail pour un patriote",
+    "name_en": "Job for a Patriot",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "getting-some-air",
+    "name_fr": "Prendre l'air",
+    "name_en": "Getting Some Air",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "easy-breazy",
+    "name_fr": "Simple comme bonjour",
+    "name_en": "Easy-Breazy",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "unique-experience",
+    "name_fr": "Expérience unique",
+    "name_en": "Unique Experience",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "perfect-mediator",
+    "name_fr": "Médiateur parfait",
+    "name_en": "Perfect mediator",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "intimidator",
+    "name_fr": "Intimidateur",
+    "name_en": "Intimidator",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "sensory-analysis-part-2-apc",
+    "name_fr": "Analyse sensorielle — partie 2 (VBTT)",
+    "name_en": "Sensory Analysis - Part 2 APC",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "forge-a-friendship",
+    "name_fr": "Sceller une amitié",
+    "name_en": "Forge a Friendship",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "the-art-of-explosion",
+    "name_fr": "L'art de l'explosion",
+    "name_en": "The Art of Explosion",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "inevitable-response",
+    "name_fr": "Réponse inévitable",
+    "name_en": "Inevitable response",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "special-order",
+    "name_fr": "Commande spéciale",
+    "name_en": "Special Order",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "oil-change",
+    "name_fr": "Vidange",
+    "name_en": "Oil Change",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "loyalty-level-1",
+    "name_fr": "Niveau de fidélité 1",
+    "name_en": "Loyalty level - 1",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "loyalty-level-2",
+    "name_fr": "Niveau de fidélité 2",
+    "name_en": "Loyalty level - 2",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "loyalty-level-3",
+    "name_fr": "Niveau de fidélité 3",
+    "name_en": "Loyalty level - 3",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "loyalty-level-4",
+    "name_fr": "Niveau de fidélité 4",
+    "name_en": "Loyalty level - 4",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "essential-tasks",
+    "name_fr": "Tâches essentielles",
+    "name_en": "Essential tasks",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "ironclad-proof",
+    "name_fr": "Preuve irréfutable",
+    "name_en": "Ironclad Proof",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "uninvited-guests-part-1",
+    "name_fr": "[Brèche KORD] Invités surprises — partie 1",
+    "name_en": "Uninvited Guests - Part 1",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "cast-the-net",
+    "name_fr": "[Brèche KORD] Jeter le filet",
+    "name_en": "Cast the Net",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "know-your-enemy",
+    "name_fr": "[Brèche KORD] Connais ton ennemi",
+    "name_en": "Know your enemy",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "reverse-gear",
+    "name_fr": "[Brèche KORD] Marche arrière",
+    "name_en": "Reverse Gear",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "whats-in-the-bag",
+    "name_fr": "[Brèche KORD] Qu'y a-t-il dans le sac ?",
+    "name_en": "What's in the Bag?",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "forbidden-knowledge",
+    "name_fr": "[Brèche KORD] Savoir interdit",
+    "name_en": "Forbidden knowledge",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "wolf-in-sheeps-clothing",
+    "name_fr": "[Brèche KORD] Loup déguisé en agneau",
+    "name_en": "Wolf in Sheep's Clothing",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "fog-of-war",
+    "name_fr": "Brouillard de guerre",
+    "name_en": "Fog of War",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "subscriber-temporarily-unavailable",
+    "name_fr": "Abonné temporairement indisponible",
+    "name_en": "Subscriber temporarily unavailable",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "all-inclusive-support",
+    "name_fr": "Assistance « tout compris »",
+    "name_en": "\"All-inclusive\" support",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "lose-the-tail",
+    "name_fr": "Semer la filature",
+    "name_en": "Lose the tail",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "callsign-malachite",
+    "name_fr": "Indicatif Malachite",
+    "name_en": "Callsign Malachite",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "the-good-times-part-1",
+    "name_fr": "Le bon vieux temps — partie 1",
+    "name_en": "The Good Times - Part 1",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "no-offence",
+    "name_fr": "Sans rancune",
+    "name_en": "No offence",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "green-corridor",
+    "name_fr": "Couloir vert",
+    "name_en": "Green Corridor",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "kings-of-the-rooftops",
+    "name_fr": "Rois des toits",
+    "name_en": "Kings of the Rooftops",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "escort",
+    "name_fr": "Escorte",
+    "name_en": "Escort",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "best-job-in-the-world",
+    "name_fr": "Le meilleur métier du monde",
+    "name_en": "Best Job in the World",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "glory-to-cpsu",
+    "name_fr": "Gloire au PCUS",
+    "name_en": "Glory to CPSU",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "gendarmerie-mall-cop",
+    "name_fr": "Gendarmerie — Vigile de centre commercial",
+    "name_en": "Gendarmerie - Mall Cop",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "gendarmerie-tickets-please",
+    "name_fr": "Gendarmerie — Vos billets, s'il vous plaît",
+    "name_en": "Gendarmerie - Tickets, Please",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "district-patrol",
+    "name_fr": "Patrouille de quartier",
+    "name_en": "District Patrol",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "capturing-outposts",
+    "name_fr": "Capture d'avant-postes",
+    "name_en": "Capturing Outposts",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "properties-all-around",
+    "name_fr": "Propriétés tout autour",
+    "name_en": "Properties All Around",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "stick-in-the-wheel",
+    "name_fr": "Bâton dans les roues",
+    "name_en": "Stick in the Wheel",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "hell-on-earth-part-1",
+    "name_fr": "L'enfer sur terre — partie 1",
+    "name_en": "Hell on Earth - Part 1",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "hell-on-earth-part-2",
+    "name_fr": "L'enfer sur terre — partie 2",
+    "name_en": "Hell on Earth - Part 2",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "the-good-times-part-2",
+    "name_fr": "Le bon vieux temps — partie 2",
+    "name_en": "The Good Times - Part 2",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "viewer",
+    "name_fr": "Spectateur",
+    "name_en": "Viewer",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "big-customer",
+    "name_fr": "Gros client",
+    "name_en": "Big customer",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "special-comms",
+    "name_fr": "Communications spéciales",
+    "name_en": "Special Comms",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "shootout-picnic",
+    "name_fr": "Pique-nique sous les balles",
+    "name_en": "Shootout picnic",
+    "objectives": [
+      "Neutraliser 15 Scavs sur Woods"
+    ],
+    "reward": "+2 500 XP · Prapor +0.1 · 20 000 Roubles · AKS-74U 5.45x39"
+  },
+  {
+    "id": "shipping-delay-part-1",
+    "name_fr": "Retard de livraison — partie 1",
+    "name_en": "Shipping Delay - Part 1",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "our-own-land",
+    "name_fr": "Notre propre terre",
+    "name_en": "Our Own Land",
+    "objectives": null,
+    "reward": null
+  },
+  {
+    "id": "half-empty",
+    "name_fr": "À moitié vide",
+    "name_en": "Half-Empty",
+    "objectives": null,
+    "reward": null
+  }
+]
