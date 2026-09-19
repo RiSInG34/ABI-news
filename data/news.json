@@ -22,6 +22,17 @@
     "source_url": "https://store.steampowered.com/news/app/2073620/view/672879191292643732"
   },
   {
+    "id": "2026-09-09-arena-breakout-infinite-bans-notice-sept",
+    "date": "2026-09-09",
+    "date_label": "9 SEPT.\n2026",
+    "category": "maj",
+    "tag": "ANTI-TRICHE",
+    "title": "Nouveau bilan des sanctions anti-triche",
+    "summary": "L'équipe sécurité d'Arena Breakout: Infinite publie son rapport de bannissements pour la période du 24 août au 6 septembre. Plus de 11 600 comptes ont été sanctionnés pour triche, dont environ 2000 bannissements de dix ans et 959 blocages d'appareils ou d'adresses IP. Le studio rappelle sa politique de tolérance zéro envers les logiciels tiers et invite les joueurs à signaler les comportements suspects.",
+    "source_label": "annonce officielle Steam",
+    "source_url": "https://store.steampowered.com/news/app/2073620/view/680761125088788526"
+  },
+  {
     "id": "2026-09-08-season-7-utopia-arrives-sep-16",
     "date": "2026-09-08",
     "date_label": "8 SEPT.\n2026",
@@ -77,6 +88,17 @@
     "source_url": "https://store.steampowered.com/news/app/2073620/view/669498320818800809"
   },
   {
+    "id": "2026-07-31-dma-guard",
+    "date": "2026-07-31",
+    "date_label": "31 JUIL.\n2026",
+    "category": "maj",
+    "tag": "SÉCURITÉ",
+    "title": "DMA Guard, une nouvelle protection anti-triche",
+    "summary": "Les développeurs annoncent DMA Guard, un système combinant virtualisation CPU et chiffrement dynamique pour bloquer les hacks DMA à la source sur PC Intel et AMD. Cette protection s'appuie sur des fonctions de sécurité Windows déjà actives par défaut, sans impact sur les performances. Elle est attendue avec la mise à jour d'août, avec un guide de configuration publié avant son lancement.",
+    "source_label": "annonce officielle Steam",
+    "source_url": "https://store.steampowered.com/news/app/2073620/view/669498320818800325"
+  },
+  {
     "id": "2026-07-30-july-30-live-update-announcement",
     "date": "2026-07-30",
     "date_label": "30 JUIL.\n2026",
@@ -86,6 +108,17 @@
     "summary": "Une mise à jour live est prévue le 30 juillet à 03h00 UTC, corrigeant plusieurs bugs sur les cartes Airport et Armory, l'animation du Legacy Knife et l'affichage de l'icône du personnage après élimination. Le mode Hostile Sector: Solo Infiltration reçoit un meilleur guidage, et les alertes liées aux objets expirés sont clarifiées. Les exigences d'entrée du mode Melee-Only à TV Station passent à 200 000, tandis que les multiplicateurs des meilleures places dans Airport Supplies Drops sont revalorisés.",
     "source_label": "annonce officielle Steam",
     "source_url": "https://store.steampowered.com/news/app/2073620/view/669498320818799212"
+  },
+  {
+    "id": "2026-07-29-arena-breakout-infinite-bans-notice-july",
+    "date": "2026-07-29",
+    "date_label": "29 JUIL.\n2026",
+    "category": "maj",
+    "tag": "SÉCURITÉ",
+    "title": "Nouveau bilan des sanctions anti-triche",
+    "summary": "L'équipe de sécurité d'Arena Breakout: Infinite publie son bilan pour la période du 13 au 26 juillet. Plus de 11 600 comptes ont été bannis pour triche, dont environ 1200 bannissements de dix ans et près de 1000 blocages d'appareils ou d'IP. Le studio rappelle sa politique de tolérance zéro et encourage les joueurs à signaler les comportements suspects via la fonction de report.",
+    "source_label": "annonce officielle Steam",
+    "source_url": "https://store.steampowered.com/news/app/2073620/view/669498320818798769"
   },
   {
     "id": "s6-white-nights",
