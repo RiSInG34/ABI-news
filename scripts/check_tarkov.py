@@ -17,6 +17,7 @@ import json
 import os
 import re
 import sys
+import urllib.error
 import urllib.request
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "data")
@@ -76,13 +77,25 @@ def fetch_prapor_tasks() -> list[dict]:
     req = urllib.request.Request(
         TARKOV_API_URL,
         data=payload,
-        headers={"Content-Type": "application/json", "User-Agent": "ABI-News-Tarkov-Bot/1.0"},
+        headers={
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "User-Agent": "ABI-News-Tarkov-Bot/1.0",
+        },
         method="POST",
     )
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        data = json.loads(resp.read())
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            data = json.loads(resp.read())
+    except urllib.error.HTTPError as exc:
+        body = exc.read().decode("utf-8", errors="replace")
+        log(f"Erreur HTTP {exc.code} de l'API tarkov.dev. Réponse : {body}")
+        raise
 
-    tasks = data.get("data", {}).get("tasks", [])
+    if "errors" in data:
+        log(f"L'API a renvoyé des erreurs GraphQL : {data['errors']}")
+
+    tasks = data.get("data", {}).get("tasks", []) or []
     return [t for t in tasks if t.get("trader", {}).get("name") == TRADER_NAME]
 
 
