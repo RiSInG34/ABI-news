@@ -1,0 +1,611 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABI News — Actualités Arena Breakout Infinite en français</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #12130F;
+    --bg-panel: #1C1E15;
+    --bg-panel-raised: #23261A;
+    --text: #EDE8D8;
+    --text-muted: #A7A38C;
+    --accent: #E2762E;
+    --accent-2: #7C8560;
+    --border: #34362A;
+    --shadow: rgba(0,0,0,0.4);
+    color-scheme: dark;
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #EDE7D6;
+      --bg-panel: #F5F1E4;
+      --bg-panel-raised: #FFFDF6;
+      --text: #201F16;
+      --text-muted: #5B5A47;
+      --accent: #C15A1F;
+      --accent-2: #55613F;
+      --border: #C9C2A6;
+      --shadow: rgba(90,80,50,0.15);
+      color-scheme: light;
+    }
+  }
+
+  :root[data-theme="light"] {
+    --bg: #EDE7D6;
+    --bg-panel: #F5F1E4;
+    --bg-panel-raised: #FFFDF6;
+    --text: #201F16;
+    --text-muted: #5B5A47;
+    --accent: #C15A1F;
+    --accent-2: #55613F;
+    --border: #C9C2A6;
+    --shadow: rgba(90,80,50,0.15);
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.55;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- HEADER ---------- */
+  header {
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 50;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .brand {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .brand-mark {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 0.02em;
+  }
+
+  .brand-mark span { color: var(--accent); }
+
+  .brand-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.03em;
+  }
+
+  nav {
+    display: flex;
+    gap: 22px;
+    font-size: 14px;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  nav a:hover { color: var(--text); border-color: var(--accent); }
+
+  .theme-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    border-radius: 3px;
+    padding: 6px 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    cursor: pointer;
+  }
+  .theme-toggle:hover { color: var(--text); border-color: var(--accent); }
+
+  @media (max-width: 620px) {
+    nav { display: none; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    padding: 56px 24px 40px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .stamp {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    padding: 5px 12px;
+    border-radius: 2px;
+    transform: rotate(-2deg);
+    margin-bottom: 22px;
+  }
+
+  .stamp::before { content: "●"; font-size: 8px; }
+
+  .hero h1 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: clamp(32px, 6vw, 52px);
+    line-height: 1.08;
+    margin: 0 0 18px;
+    max-width: 14ch;
+  }
+
+  .hero p.lede {
+    font-size: 17px;
+    color: var(--text-muted);
+    max-width: 52ch;
+    margin: 0 0 28px;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 24px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--text-muted);
+    flex-wrap: wrap;
+  }
+
+  .hero-meta strong { color: var(--text); font-weight: 500; }
+
+  /* ---------- SECTION LABELS ---------- */
+  .section {
+    padding: 44px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-inner { max-width: 900px; margin: 0 auto; }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 26px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .section-head h2 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    margin: 0;
+  }
+
+  .filter-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+  }
+  .filter-btn.active, .filter-btn:hover {
+    color: var(--bg);
+    background: var(--accent-2);
+    border-color: var(--accent-2);
+  }
+
+  /* ---------- NEWS CARDS ---------- */
+  .news-item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 20px;
+    padding: 22px 0;
+    border-top: 1px solid var(--border);
+  }
+  .news-item:first-child { border-top: none; padding-top: 0; }
+
+  @media (max-width: 560px) {
+    .news-item { grid-template-columns: 1fr; gap: 8px; }
+  }
+
+  .news-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--text-muted);
+    padding-top: 3px;
+  }
+
+  .news-tag {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 2px;
+    padding: 2px 7px;
+    margin-bottom: 10px;
+  }
+
+  .news-item h3 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 19px;
+    margin: 0 0 8px;
+  }
+
+  .news-item p {
+    margin: 0 0 10px;
+    color: var(--text-muted);
+    font-size: 15px;
+    max-width: 62ch;
+  }
+
+  .news-item .src {
+    font-size: 12.5px;
+  }
+
+  .news-item .src a {
+    color: var(--accent-2);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--accent-2);
+  }
+  .news-item .src a:hover { color: var(--accent); border-color: var(--accent); }
+
+  .news-item[data-cat] { display: grid; }
+  .news-item.hidden { display: none; }
+
+  /* ---------- PATCH NOTES ---------- */
+  .patch-block {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 24px 26px;
+    margin-bottom: 18px;
+  }
+
+  .patch-block h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    margin: 0 0 4px;
+  }
+
+  .patch-block .patch-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .patch-block ul {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--text-muted);
+    font-size: 14.5px;
+  }
+  .patch-block li { margin-bottom: 6px; }
+  .patch-block li::marker { color: var(--accent-2); }
+
+  /* ---------- AD SLOTS ---------- */
+  .ad-slot {
+    border: 1px dashed var(--border);
+    border-radius: 4px;
+    padding: 22px;
+    text-align: center;
+    color: var(--text-muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.03em;
+    margin: 30px 0;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-box {
+    background: var(--bg-panel);
+    border-left: 3px solid var(--accent-2);
+    padding: 20px 24px;
+    font-size: 14.5px;
+    color: var(--text-muted);
+    border-radius: 0 4px 4px 0;
+  }
+  .about-box strong { color: var(--text); }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    padding: 34px 24px 50px;
+  }
+  .footer-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+  .footer-links a { text-decoration: none; color: var(--text-muted); }
+  .footer-links a:hover { color: var(--accent); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-mark">ABI <span>NEWS</span></span>
+      <span class="brand-sub">/// ABI — NON OFFICIEL</span>
+    </div>
+    <nav>
+      <a href="#actualites">Actualités</a>
+      <a href="#patchs">Patch notes</a>
+      <a href="#apropos">À propos</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Changer de thème">MODE</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="stamp">SAISON 7 — UTOPIA EN COURS</span>
+    <h1>Toute l'actu d'Arena Breakout Infinite, traduite pour vous.</h1>
+    <p class="lede">Patchs, saisons, événements et annonces de MoreFun Studios, résumés en français dès qu'ils tombent. Un site de fans, indépendant, pour ne rien rater de Kamona sans devoir lire l'anglais.</p>
+    <div class="hero-meta">
+      <span><strong>9</strong> actus suivies</span>
+      <span><strong>S1 → S7</strong> historique complet</span>
+      <span><strong>Non affilié</strong> à MoreFun Studios</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="actualites">
+  <div class="section-inner">
+    <div class="section-head">
+      <h2>Actualités</h2>
+      <div class="filter-row" id="filterRow">
+        <button class="filter-btn active" data-filter="all">Tout</button>
+        <button class="filter-btn" data-filter="saison">Saisons</button>
+        <button class="filter-btn" data-filter="maj">Mises à jour</button>
+        <button class="filter-btn" data-filter="lancement">Lancement</button>
+      </div>
+    </div>
+
+    <div id="newsContainer">
+      <p style="color: var(--text-muted); font-family: 'IBM Plex Mono', monospace; font-size: 13px;">Chargement des actualités…</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="patchs">
+  <div class="section-inner">
+    <div class="section-head">
+      <h2>Points clés — Patch notes</h2>
+    </div>
+
+    <div class="patch-block">
+      <h3>Saison 7 "Utopia" — récapitulatif technique</h3>
+      <span class="patch-date">Septembre 2026</span>
+      <ul>
+        <li>2 nouveaux modes zombies : Infected Zone (PvPvE) et Zombie Endless (PvE)</li>
+        <li>2 nouvelles armes : A545 et AK-15SC</li>
+        <li>Buffs des headshots et de la portée efficace en PvP</li>
+        <li>Nerf des lampes torches, retrait du RNG de pénétration T5/T6</li>
+        <li>3 nouvelles maîtrises "core" : oreillettes acoustiques, ceinture tactique, compartiments cachés</li>
+        <li>Nouvelle maîtrise de combat "Last Stand" (réduction du recul à PV critiques)</li>
+      </ul>
+    </div>
+
+    <div class="patch-block">
+      <h3>Saison One — récapitulatif technique</h3>
+      <span class="patch-date">Novembre 2024</span>
+      <ul>
+        <li>Nouvelle carte : TV Station, plus extension de la carte Armory</li>
+        <li>8 nouvelles armes, dont T03, Vector 9/45, MDR</li>
+        <li>Plus de 100 modifications d'armement ajoutées</li>
+        <li>Premier Battle Pass du jeu</li>
+        <li>Compensation anti-triche pour les joueurs lésés</li>
+        <li>Configuration minimale abaissée : 12 Go RAM / 2 Go VRAM</li>
+      </ul>
+    </div>
+
+    <div class="patch-block">
+      <h3>Accès anticipé — contenu de lancement</h3>
+      <span class="patch-date">Août 2024</span>
+      <ul>
+        <li>Nouvelle carte Armory</li>
+        <li>Fonctions Kill Cam et Spectate ajoutées</li>
+        <li>4 langues supplémentaires prises en charge</li>
+        <li>Configuration minimale abaissée : GTX 960</li>
+        <li>Introduction du système de saisons</li>
+      </ul>
+    </div>
+
+    <div class="ad-slot">EMPLACEMENT PUBLICITAIRE — à activer une fois le site hébergé sur votre propre domaine</div>
+  </div>
+</section>
+
+<section class="section" id="apropos">
+  <div class="section-inner">
+    <div class="section-head">
+      <h2>À propos de ce site</h2>
+    </div>
+    <div class="about-box">
+      <p><strong>ABI News</strong> est un site de fans, non officiel et non affilié à MoreFun Studios ou à l'éditeur d'Arena Breakout: Infinite. Toutes les actualités sont reformulées en français à partir des communications publiques du studio (site officiel, Steam, réseaux sociaux), avec un lien vers la source d'origine à chaque fois.</p>
+      <p style="margin-top:10px;">Le nom et les visuels du jeu sont utilisés à titre descriptif pour identifier le contenu couvert. Pour les informations officielles et à jour, consultez toujours <a href="https://www.arenabreakoutinfinite.com" target="_blank" rel="noopener" style="color:var(--accent-2)">arenabreakoutinfinite.com</a>.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span>© ABI News — site non officiel, tenu par des fans.</span>
+    <div class="footer-links">
+      <a href="https://www.arenabreakoutinfinite.com" target="_blank" rel="noopener">Site officiel</a>
+      <a href="https://store.steampowered.com/app/2073620" target="_blank" rel="noopener">Steam</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Theme toggle
+  (function() {
+    var root = document.documentElement;
+    var btn = document.getElementById('themeToggle');
+    var saved = null;
+    try { saved = localStorage.getItem('kamona-theme'); } catch (e) {}
+    if (saved) root.setAttribute('data-theme', saved);
+
+    btn.addEventListener('click', function() {
+      var current = root.getAttribute('data-theme');
+      var isDarkNow = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      var next = isDarkNow ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('kamona-theme', next); } catch (e) {}
+    });
+  })();
+
+  // News filter — query items live, since they're injected after the JSON loads
+  (function() {
+    var buttons = document.querySelectorAll('.filter-btn');
+    buttons.forEach(function(b) {
+      b.addEventListener('click', function() {
+        buttons.forEach(function(x) { x.classList.remove('active'); });
+        b.classList.add('active');
+        var f = b.getAttribute('data-filter');
+        document.querySelectorAll('.news-item').forEach(function(item) {
+          if (f === 'all' || item.getAttribute('data-cat') === f) {
+            item.classList.remove('hidden');
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+      });
+    });
+  })();
+
+  // Load news dynamically from data/news.json — this is the file
+  // the automation script (scripts/check_news.py) updates on its own.
+  (function() {
+    var container = document.getElementById('newsContainer');
+
+    function escapeHtml(str) {
+      var div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    fetch('data/news.json?_=' + Date.now())
+      .then(function(res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function(items) {
+        items.sort(function(a, b) { return new Date(b.date) - new Date(a.date); });
+
+        if (items.length === 0) {
+          container.innerHTML = '<p style="color: var(--text-muted);">Aucune actualité pour le moment.</p>';
+          return;
+        }
+
+        var html = items.map(function(item, idx) {
+          var dateHtml = escapeHtml(item.date_label || '').replace(/\n/g, '<br>');
+          return (
+            '<div class="news-item' + (idx === 0 ? '' : '') + '" data-cat="' + escapeHtml(item.category) + '">' +
+              '<div class="news-date">' + dateHtml + '</div>' +
+              '<div>' +
+                '<span class="news-tag">' + escapeHtml(item.tag) + '</span>' +
+                '<h3>' + escapeHtml(item.title) + '</h3>' +
+                '<p>' + escapeHtml(item.summary) + '</p>' +
+                '<div class="src">Source : <a href="' + escapeHtml(item.source_url) + '" target="_blank" rel="noopener">' + escapeHtml(item.source_label) + '</a></div>' +
+              '</div>' +
+            '</div>'
+          );
+        }).join('');
+
+        container.innerHTML = html;
+
+        // Re-apply filters now that items exist
+        var buttons = document.querySelectorAll('.filter-btn');
+        var activeFilter = 'all';
+        buttons.forEach(function(b) { if (b.classList.contains('active')) activeFilter = b.getAttribute('data-filter'); });
+        if (activeFilter !== 'all') {
+          document.querySelectorAll('.news-item').forEach(function(item) {
+            if (item.getAttribute('data-cat') !== activeFilter) item.classList.add('hidden');
+          });
+        }
+      })
+      .catch(function(err) {
+        container.innerHTML = '<p style="color: var(--text-muted);">Impossible de charger les actualités (' + escapeHtml(err.message) + ').</p>';
+      });
+  })();
+</script>
+
+</body>
+</html>
