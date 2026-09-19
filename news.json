@@ -1,0 +1,101 @@
+[
+  {
+    "id": "s7-utopia",
+    "date": "2026-09-16",
+    "date_label": "16 SEPT.\n2026",
+    "category": "saison",
+    "tag": "SAISON 7",
+    "title": "Saison 7 \"Utopia\" : les zombies débarquent à Kamona",
+    "summary": "La septième saison bascule dans l'horreur avec deux modes zombies inédits : Infected Zone (PvPvE) et Zombie Endless (PvE), et six types de morts-vivants à affronter. Le studio en profite pour livrer les rééquilibrages PvP très attendus par la communauté : buffs des headshots et de la portée efficace, nerf des lampes torches, retrait de l'aléatoire de pénétration sur les armures T5/T6. Deux nouvelles armes rejoignent l'arsenal, le A545 et l'AK-15SC, aux côtés de nouvelles maîtrises \"core\" (oreillettes anti-bruit, ceinture tactique, compartiments cachés).",
+    "source_label": "annonce officielle Saison 7",
+    "source_url": "https://arenabreakout-infinite.com/updates/s7-utopia/"
+  },
+  {
+    "id": "s6-white-nights",
+    "date": "2026-06-29",
+    "date_label": "29 JUIN\n2026",
+    "category": "saison",
+    "tag": "SAISON 6",
+    "title": "Saison 6 \"White Nights\" : un système de maîtrises fait son entrée",
+    "summary": "Gros ajout structurel avec le Mastery System : trois arbres de progression (Combat, Survie, Soutien), gratuits et réinitialisables à volonté, pour personnaliser son style de jeu sans grind. Deux armes rejoignent le roster, le PM Banshee et la carabine de précision T88, accompagnées de nouvelles munitions. Les stations de ravitaillement en raid offrent désormais deux objets gratuits cinq minutes après le début de la partie, et un nouveau système de \"Carrière\" enregistre vos meilleurs moments à Kamona.",
+    "source_label": "changelog officiel Saison 6",
+    "source_url": "https://changelog.gg/games/arena-breakout-infinite-2073620/updates/2026-06-29-season-6-update-announcement-6f4032d64ac59262"
+  },
+  {
+    "id": "s5-distortion",
+    "date": "2026-04-01",
+    "date_label": "AVRIL\n2026",
+    "category": "saison",
+    "tag": "SAISON 5",
+    "title": "Saison 5 \"Distortion\" : la carte Valley bascule dans le surnaturel",
+    "summary": "L'une des mises à jour les plus ambitieuses à ce jour : la carte Valley se transforme en champ de bataille surnaturel où chaque opérateur choisit une capacité spéciale en début de raid, mêlant tir tactique réaliste et mécaniques proches du hero-shooter. Le patch s'accompagne d'un rééquilibrage complet du end-game et d'une remise à zéro de la progression pour repartir sur des bases saines.",
+    "source_label": "notes de patch Saison 5",
+    "source_url": "https://arenabreakout-infinite.com/guides/season-5-patch-notes/"
+  },
+  {
+    "id": "s4-airport-hunt",
+    "date": "2026-01-08",
+    "date_label": "8 JANV.\n2026",
+    "category": "saison",
+    "tag": "SAISON 4",
+    "title": "Saison 4 \"Airport Hunt\" : nouvelle carte et Northridge sous la neige",
+    "summary": "Après des pics réguliers de 25 000 joueurs actifs simultanés, MoreFun frappe fort avec la carte Guoyapos Airport et une version hivernale enneigée de Northridge. Nouvelles armes et fichiers chiffrés à haut risque complètent le tableau. Les joueurs connectés entre le 8 et le 10 janvier ont reçu un million de Koen en bonus de lancement.",
+    "source_label": "PCGamesN",
+    "source_url": "https://www.pcgamesn.com/arena-breakout-infinite/season-4-airport-hunt"
+  },
+  {
+    "id": "full-release-s3",
+    "date": "2025-09-15",
+    "date_label": "15 SEPT.\n2025",
+    "category": "lancement",
+    "tag": "FULL RELEASE",
+    "title": "Sortie complète du jeu et Saison 3 \"Breach\" : Kamona change d'échelle",
+    "summary": "ABI quitte officiellement l'accès anticipé pour sa sortie complète, avec un lancement simultané sur Steam et Epic Games Store — une première pour le jeu. Cette Saison 3 n'est pas qu'un simple patch de contenu : refonte de plusieurs systèmes, nouvelles armes, cartes étendues, et l'arrivée des Stations de Ravitaillement sur toutes les cartes ainsi que des fournitures premium exclusives à l'établi.",
+    "source_label": "bilan officiel Saison 3",
+    "source_url": "https://arenabreakout-infinite.com/abi-full-release-season-3-update-overview/"
+  },
+  {
+    "id": "s2-crimson-edge",
+    "date": "2025-07-10",
+    "date_label": "10 JUIL.\n2025",
+    "category": "saison",
+    "tag": "SAISON 2",
+    "title": "Saison 2 \"Crimson Edge\" : la zone Farm s'agrandit",
+    "summary": "Nouvelle extension rurale de la carte Farm, avec un boss inédit et une refonte des modes de jeu : le mode Solo Ops devient permanent sur la Forbidden Zone, et deux variantes de deathmatch en 4v4 font leur apparition (armes aléatoires à chaque kill, ou montée en puissance progressive de l'arsenal d'équipe). Trois nouveaux objets de très haute valeur rejoignent également le loot le plus rare du jeu.",
+    "source_label": "dev talk Saison 2",
+    "source_url": "https://arenabreakout-infinite.com/season-2-crimson-edge-dev-talk-breakdown/"
+  },
+  {
+    "id": "s1-tv-station",
+    "date": "2024-11-20",
+    "date_label": "20 NOV.\n2024",
+    "category": "saison",
+    "tag": "SAISON",
+    "title": "La Saison One débarque avec la carte TV Station",
+    "summary": "Premier grand contenu saisonnier du jeu : une nouvelle carte (la station de télévision), une extension de la carte Armory, huit armes inédites, plus de 100 modifications d'armement et un personnage féminin jouable. Le tout accompagné du tout premier Battle Pass et de nouvelles mesures anti-triche, dont une compensation pour les joueurs victimes de tricheurs.",
+    "source_label": "site officiel arenabreakoutinfinite.com",
+    "source_url": "https://www.arenabreakoutinfinite.com"
+  },
+  {
+    "id": "s1-preview-announced",
+    "date": "2024-11-07",
+    "date_label": "7 NOV.\n2024",
+    "category": "maj",
+    "tag": "ANNONCE",
+    "title": "Le contenu de la Saison One dévoilé avant son lancement",
+    "summary": "Avant l'ouverture officielle, le studio a détaillé le programme : nouvelles cartes, nouveaux modes (Fog Event, Storm Event, Farm Assault, Armory Assault), huit armes dont le T03, le Vector 9/45 et le MDR, et un abaissement de la configuration minimale requise à 12 Go de RAM et 2 Go de VRAM pour élargir l'accès aux PC plus modestes.",
+    "source_label": "site officiel arenabreakoutinfinite.com",
+    "source_url": "https://www.arenabreakoutinfinite.com"
+  },
+  {
+    "id": "early-access-launch",
+    "date": "2024-08-13",
+    "date_label": "13 AOÛT\n2024",
+    "category": "lancement",
+    "tag": "LANCEMENT",
+    "title": "L'accès anticipé sur PC est disponible",
+    "summary": "Arena Breakout: Infinite passe en accès anticipé gratuit sur PC, avec une nouvelle carte (Armory), de nouvelles armes, les fonctionnalités très demandées Kill Cam et Spectate, quatre langues supplémentaires prises en charge, et une configuration minimale abaissée (GTX 960). Le jeu introduit aussi son système de saisons.",
+    "source_label": "page Steam officielle",
+    "source_url": "https://store.steampowered.com/app/2073620"
+  }
+]
