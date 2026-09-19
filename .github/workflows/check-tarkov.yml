@@ -1,0 +1,36 @@
+name: Vérifier les quêtes Tarkov
+
+on:
+  schedule:
+    # Une fois par jour à 6h UTC — les nouvelles quêtes sont rares (wipes/gros patchs),
+    # pas besoin d'une fréquence aussi élevée que pour les news ABI.
+    - cron: "0 6 * * *"
+  workflow_dispatch: {}  # permet de le lancer manuellement depuis l'onglet "Actions"
+
+permissions:
+  contents: write
+
+jobs:
+  check-tarkov:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Lancer le script de veille Tarkov
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/check_tarkov.py
+
+      - name: Publier les changements s'il y en a
+        run: |
+          git config user.name "abi-news-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/tarkov-quests.json data/tarkov-state.json
+          git diff --cached --quiet || git commit -m "Tarkov : nouvelle(s) quête(s) détectée(s)"
+          git push
