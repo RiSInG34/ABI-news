@@ -89,8 +89,8 @@
 
   .brand {
     display: flex;
-    align-items: baseline;
-    gap: 10px;
+    align-items: center;
+    gap: 26px;
   }
 
   .brand-mark {
@@ -101,6 +101,19 @@
   }
 
   .brand-mark span { color: var(--accent); }
+  a.brand-sub:hover { color: var(--accent); }
+  .tarkov-link {
+    font-family: 'Oswald', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    letter-spacing: 0.04em;
+    color: var(--text) !important;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 6px 14px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .tarkov-link:hover { color: var(--accent) !important; border-color: var(--accent); }
 
   .brand-sub {
     font-family: 'IBM Plex Mono', monospace;
@@ -416,15 +429,13 @@
   <div class="header-inner">
     <div class="brand">
       <span class="brand-mark">ABI <span>NEWS</span></span>
-      <span class="brand-sub">/// ABI — NON OFFICIEL</span>
+      <a class="brand-sub tarkov-link" href="/tarkov.html" style="text-decoration:none;">Quêtes TARKOV</a>
     </div>
-   <nav>
-  <a href="#actualites">Actualités</a>
-  <a href="/armures.html">Armures</a>
-  <a href="#patchs">Patch notes</a>
-  <a href="/cartes.html">Cartes</a>
-  <a href="#apropos">À propos</a>
-</nav>
+    <nav>
+      <a href="#actualites">Actualités</a>
+      <a href="#patchs">Patch notes</a>
+      <a href="#apropos">À propos</a>
+    </nav>
     <button class="theme-toggle" id="themeToggle" type="button" aria-label="Changer de thème">MODE</button>
   </div>
 </header>
@@ -451,7 +462,7 @@
   <div class="section-inner">
     <div class="section-head">
       <h2>Actualités</h2>
-        <div class="filter-row" id="filterRow">
+      <div class="filter-row" id="filterRow">
         <button class="filter-btn active" data-filter="all">Tout</button>
         <button class="filter-btn" data-filter="saison">Saisons</button>
         <button class="filter-btn" data-filter="maj">Mises à jour</button>
@@ -631,4 +642,3 @@
 
 </body>
 </html>
-
