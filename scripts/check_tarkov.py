@@ -32,19 +32,13 @@ ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages"
 
 GRAPHQL_QUERY = """
 {
-  tasks(lang: en) {
+  tasks {
     id
     name
     normalizedName
     trader { name }
     minPlayerLevel
-    kappaRequired
     objectives { description }
-    finishRewards {
-      items { item { name } count }
-      traderStanding { trader { name } standing }
-      skillLevelReward { skill { name } level }
-    }
   }
 }
 """
@@ -58,9 +52,10 @@ Règles impératives :
 - Reformule chaque objectif en français, une phrase courte et actionnable
   par objectif (\"Éliminer 5 Scavs sur Customs\", pas de traduction littérale
   bancale).
-- Résume les récompenses en une seule ligne, séparées par \" · \", en
-  incluant XP si connu, réputation marchand, roubles, objets notables. Si
-  peu d'information est disponible, fais une ligne courte avec ce que tu as.
+- Résume les récompenses en une seule ligne courte. Si les données fournies
+  sont limitées (juste un niveau requis), dis-le honnêtement plutôt que
+  d'inventer des objets ou montants — par exemple : "Niveau requis : 6 ·
+  récompenses détaillées à confirmer en jeu".
 - Ne garde PAS le texte anglais dans les objectifs ou récompenses.
 
 Réponds UNIQUEMENT avec un objet JSON valide, sans texte autour :
@@ -112,17 +107,10 @@ def slugify(name: str) -> str:
 
 
 def summarize_rewards_en(task: dict) -> str:
-    parts = []
-    for r in task.get("finishRewards", {}).get("items", []) or []:
-        item = r.get("item", {}) or {}
-        count = r.get("count", 1)
-        if item.get("name"):
-            parts.append(f"{count}x {item['name']}")
-    for r in task.get("finishRewards", {}).get("traderStanding", []) or []:
-        trader = r.get("trader", {}) or {}
-        if trader.get("name"):
-            parts.append(f"{trader['name']} standing {r.get('standing')}")
-    return "; ".join(parts) if parts else "no notable reward data"
+    level = task.get("minPlayerLevel")
+    if level:
+        return f"Requires player level {level}. Detailed rewards not fetched via API — verify in-game."
+    return "Detailed rewards not fetched via API — verify in-game."
 
 
 def call_claude(name_en: str, objectives_en: list[str], rewards_en: str) -> dict:
@@ -222,3 +210,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
