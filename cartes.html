@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cartes — ABI News</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #12130F; --bg-panel: #1C1E15; --bg-panel-raised: #23261A;
+    --text: #EDE8D8; --text-muted: #A7A38C; --accent: #E2762E; --accent-2: #7C8560;
+    --border: #34362A;
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #EDE7D6; --bg-panel: #F5F1E4; --bg-panel-raised: #FFFDF6;
+      --text: #201F16; --text-muted: #5B5A47; --accent: #C15A1F;
+      --accent-2: #55613F; --border: #C9C2A6; color-scheme: light;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #EDE7D6; --bg-panel: #F5F1E4; --bg-panel-raised: #FFFDF6;
+    --text: #201F16; --text-muted: #5B5A47; --accent: #C15A1F;
+    --accent-2: #55613F; --border: #C9C2A6; color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans', sans-serif; line-height: 1.55; }
+  a { color: inherit; }
+
+  header { border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 60; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 18px 24px; max-width: 900px; margin: 0 auto; }
+  .brand { display: flex; align-items: baseline; gap: 10px; }
+  .brand-mark { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: 0.02em; }
+  .brand-mark span { color: var(--accent); }
+  .brand-sub { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-muted); }
+  nav { display: flex; gap: 22px; font-size: 14px; }
+  nav a { text-decoration: none; color: var(--text-muted); border-bottom: 1px solid transparent; padding-bottom: 2px; }
+  nav a:hover, nav a.current { color: var(--text); border-color: var(--accent); }
+  .theme-toggle { background: none; border: 1px solid var(--border); color: var(--text-muted); border-radius: 3px; padding: 6px 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; cursor: pointer; }
+  .theme-toggle:hover { color: var(--text); border-color: var(--accent); }
+  @media (max-width: 700px) { nav { display: none; } }
+
+  .submenu-wrap { position: sticky; top: 61px; z-index: 55; background: var(--bg); border-bottom: 1px solid var(--border); overflow-x: auto; white-space: nowrap; }
+  .submenu { display: inline-flex; gap: 4px; padding: 10px 24px; max-width: 900px; margin: 0 auto; }
+  .submenu a { text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--text-muted); border: 1px solid var(--border); border-radius: 3px; padding: 6px 12px; white-space: nowrap; }
+  .submenu a:hover { color: var(--text); border-color: var(--accent-2); }
+
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+  .hero { padding: 40px 24px 28px; border-bottom: 1px solid var(--border); }
+  .hero-inner { max-width: 900px; margin: 0 auto; }
+  .hero h1 { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: clamp(26px, 5vw, 40px); margin: 0 0 12px; }
+  .hero p { color: var(--text-muted); max-width: 62ch; margin: 0; font-size: 15px; }
+
+  .map-section { padding: 44px 24px; border-bottom: 1px solid var(--border); scroll-margin-top: 115px; }
+  .map-section-inner { max-width: 900px; margin: 0 auto; }
+
+  .map-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 8px; }
+  .map-head h2 { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 26px; margin: 0; }
+  .badge { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.04em; padding: 3px 10px; border-radius: 2px; border: 1px solid currentColor; }
+  .badge-normal { color: var(--accent-2); }
+  .badge-hard { color: #C98A3D; }
+  .badge-extreme { color: var(--accent); }
+
+  .map-overview { color: var(--text-muted); font-size: 15px; max-width: 72ch; margin: 0 0 16px; }
+
+  .quick-facts { display: flex; gap: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--text-muted); margin-bottom: 24px; flex-wrap: wrap; }
+  .quick-facts strong { color: var(--text); font-weight: 500; }
+
+  .info-block { background: var(--bg-panel); border: 1px solid var(--border); border-radius: 4px; padding: 18px 20px; margin-bottom: 14px; }
+  .info-block h3 { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 13.5px; margin: 0 0 10px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent-2); }
+  .info-block ul { margin: 0; padding-left: 18px; font-size: 14px; color: var(--text-muted); }
+  .info-block li { margin-bottom: 7px; }
+  .info-block li::marker { color: var(--accent-2); }
+  .info-block li strong { color: var(--text); font-weight: 500; }
+
+  .boss-card { margin-bottom: 12px; }
+  .boss-card:last-child { margin-bottom: 0; }
+  .boss-name { font-family: 'Oswald', sans-serif; font-size: 14.5px; color: var(--text); margin-bottom: 3px; }
+  .boss-detail { font-size: 13px; color: var(--text-muted); }
+
+  .map-cta {
+    display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+    font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--bg);
+    background: var(--accent-2); padding: 10px 16px; border-radius: 3px; margin-top: 6px;
+  }
+  .map-cta:hover { background: var(--accent); }
+  .map-cta.disabled { background: none; border: 1px dashed var(--border); color: var(--text-muted); }
+  .map-source { font-size: 10.5px; color: var(--text-muted); margin-top: 6px; font-family: 'IBM Plex Mono', monospace; }
+
+  .src-note { margin-top: 24px; font-size: 12px; color: var(--text-muted); font-family: 'IBM Plex Mono', monospace; }
+
+  footer { padding: 34px 24px 50px; }
+  .footer-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px; font-size: 13px; color: var(--text-muted); }
+  .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+  .footer-links a { text-decoration: none; color: var(--text-muted); }
+  .footer-links a:hover { color: var(--accent); }
+
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-mark">ABI <span>NEWS</span></span>
+      <span class="brand-sub">/// CARTES DE KAMONA</span>
+    </div>
+    <nav>
+      <a href="/">Actualités</a>
+      <a href="/#patchs">Patch notes</a>
+      <a href="/cartes.html" class="current">Cartes</a>
+      <a href="/#apropos">À propos</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Changer de thème">MODE</button>
+  </div>
+</header>
+
+<div class="submenu-wrap">
+  <div class="submenu">
+    <a href="#farm">Farm</a>
+    <a href="#valley">Valley</a>
+    <a href="#armory">Armory</a>
+    <a href="#tv-station">TV Station</a>
+    <a href="#northridge">Northridge</a>
+    <a href="#port">Port</a>
+    <a href="#airport">Guoyapo Airport</a>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Les cartes de Kamona, secteur par secteur</h1>
+    <p>Points d'extraction, boss connus et zones de loot à privilégier pour chacune des 7 cartes. Un lien vers une carte interactive précise complète chaque fiche pour la navigation en jeu.</p>
+  </div>
+</section>
+
+<!-- FARM -->
+<section class="map-section" id="farm">
+  <div class="map-section-inner">
+    <div class="map-head"><h2>Farm</h2><span class="badge badge-normal">Normal</span></div>
+    <p class="map-overview">Secteur agricole au nord de Kamona, la toute première carte accessible dans le jeu. Terrain assez ouvert entre des bâtiments isolés (motel, écuries, silos), avec des accrochages fréquents dès le début du raid à cause de la proximité des spawns.</p>
+    <div class="quick-facts">
+      <span><strong>25 min</strong> de raid</span><span><strong>12</strong> opérateurs</span><span><strong>2</strong> boss</span>
+    </div>
+
+    <div class="info-block">
+      <h3>Points d'extraction</h3>
+      <ul>
+        <li><strong>Fixes :</strong> Avant-poste, Highway, Mur de pierre, Route vers la Zone Interdite, Cabane du champ de blé, Cimetière, Tours de guet (zone de chargement et station de recyclage)</li>
+        <li><strong>Lac artificiel :</strong> disponible selon une chance d'environ 50%</li>
+        <li><strong>Sentier du chasseur :</strong> extraction possible uniquement sans sac à dos équipé</li>
+        <li><strong>Barrage sud :</strong> payant, environ 15 000 à 30 000 Koen, actif 10 min après le début</li>
+        <li><strong>Route vers Northridge :</strong> chance d'environ 50%</li>
+      </ul>
+    </div>
+
+    <div class="info-block">
+      <h3>Boss connus</h3>
+      <div class="boss-card">
+        <div class="boss-name">Ajax Jones</div>
+        <div class="boss-detail">Patrouille entre le Motel, les Écuries et parfois la zone de chargement. Reconnaissable à son béret rouge sans casque, il utilise des grenades fumigènes et est escorté de cinq gardes en armure T3.</div>
+      </div>
+      <div class="boss-card">
+        <div class="boss-name">Hecate</div>
+        <div class="boss-detail">Cheffe de l'escouade Abyss, arrivée en Saison 2. Très mobile, elle flanque plutôt que de tenir une position fixe. Apparaît près du Small Hall ou du Grain Trade Center, chance de spawn estimée à environ 15%.</div>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <h3>Zones de loot à privilégier</h3>
+      <ul>
+        <li><strong>Motel :</strong> le bâtiment le plus riche de la carte, plusieurs coffres-forts et de nombreuses caisses d'armes, mais combats fréquents dans les couloirs</li>
+        <li><strong>Écuries :</strong> loot dense (coffre à l'étage, grande caisse au rez-de-chaussée) mais peu d'issues, prudence face aux embuscades</li>
+        <li><strong>Grain Trade Center :</strong> bon spot pour les munitions et le matériel de craft, notamment les caisses de munitions premium sur la passerelle</li>
+        <li><strong>Wheatfield Farmhouse :</strong> position en hauteur ajoutée en Saison 2, bon point de tir longue distance mais très exposé</li>
+      </ul>
+    </div>
+
+    <a class="map-cta" href="https://maps.tcno.co/abi/farm" target="_blank" rel="noopener">Ouvrir la carte interactive →</a>
+    <div class="map-source">Carte : TroubleChute Interactive Maps</div>
+  </div>
+</section>
+
+<!-- VALLEY -->
+<section class="map-section" id="valley">
+  <div class="map-section-inner">
+    <div class="map-head"><h2>Valley</h2><span class="badge badge-normal">Normal</span></div>
+    <p class="map-overview">Vallée fluviale en terrasses avec des positions de tir en hauteur et un carrefour central très disputé. Carte assez ouverte, favorable aux armes longue distance.</p>
+    <div class="quick-facts"><span><strong>30 min</strong> de raid</span><span><strong>12</strong> opérateurs</span></div>
+
+    <div class="info-block">
+      <h3>Zones de loot à privilégier</h3>
+      <ul>
+        <li><strong>Seaside Villa (haute valeur) :</strong> bâtiment le plus reconnaissable de la carte, deux coffres-forts gratuits à l'étage, zone très contestée</li>
+        <li><strong>Small Factory (valeur moyenne) :</strong> au nord, entourée de forêt, visibilité réduite mais itinéraire relativement plus sûr</li>
+        <li><strong>Port (valeur moyenne) :</strong> au sud-ouest, facilement accessible depuis la Seaside Villa, avec deux points d'extraction à proximité</li>
+      </ul>
+    </div>
+    <div class="info-block">
+      <h3>Extraction notable</h3>
+      <ul><li>Une extraction par hélicoptère est disponible à la Seaside Villa, mais elle nécessite d'avoir récupéré 3 plaques d'identité au préalable</li></ul>
+    </div>
+
+    <a class="map-cta" href="https://maps.tcno.co/abi/valley" target="_blank" rel="noopener">Ouvrir la carte interactive →</a>
+    <div class="map-source">Carte : TroubleChute Interactive Maps</div>
+  </div>
+</section>
+
+<!-- ARMORY -->
+<section class="map-section" id="armory">
+  <div class="map-section-inner">
+    <div class="map-head"><h2>Armory</h2><span class="badge badge-hard">Difficile</span></div>
+    <p class="map-overview">Dépôt militaire fortifié. C'est la carte avec le loot le plus dense du roster, mais aussi le PvP le plus intense — mieux vaut y entrer bien équipé.</p>
+    <div class="quick-facts"><span><strong>25 min</strong> de raid</span><span><strong>10</strong> opérateurs</span><span><strong>5</strong> extractions</span></div>
+
+    <div class="info-block">
+      <h3>Points d'extraction</h3>
+      <ul>
+        <li>West Highway, Underground Mine, Underground Tunnel, B1 Waterway, Eastern Blockade — toutes conditionnelles</li>
+        <li>L'accès au bâtiment central de l'Armory se fait via des leviers, avec un temps d'attente d'une minute à une minute quarante selon l'entrée choisie</li>
+      </ul>
+    </div>
+    <div class="info-block">
+      <h3>Zones de loot à privilégier</h3>
+      <ul>
+        <li><strong>Armory (haute valeur) :</strong> zone centrale accessible par levier, nombreux points de loot mais PNJ extrêmement bien équipés</li>
+        <li><strong>Granary (valeur moyenne) :</strong> à l'ouest, reliée au Material Storage par un passage souterrain ; prudence face aux grenades dans les espaces confinés</li>
+        <li><strong>Gas Station (valeur moyenne) :</strong> à l'est de la carte</li>
+      </ul>
+    </div>
+
+    <a class="map-cta" href="https://maps.tcno.co/abi/armory" target="_blank" rel="noopener">Ouvrir la carte interactive →</a>
+    <div class="map-source">Carte : TroubleChute Interactive Maps</div>
+  </div>
+</section>
+
+<!-- TV STATION -->
+<section class="map-section" id="tv-station">
+  <div class="map-section-inner">
+    <div class="map-head"><h2>TV Station</h2><span class="badge badge-hard">Difficile</span></div>
+    <p class="map-overview">Complexe de diffusion construit autour d'une tour centrale. Combats verticaux et longs couloirs intérieurs, avec une zone centrale exposée à un gaz toxique. Jusqu'à trois boss peuvent apparaître sur cette carte.</p>
+    <div class="quick-facts"><span><strong>25 min</strong> de raid</span><span><strong>10</strong> opérateurs</span></div>
+
+    <div class="info-block">
+      <h3>Points d'extraction</h3>
+      <ul>
+        <li><strong>Ascenseur :</strong> appel près de la fumée rouge, attente d'environ 150 secondes</li>
+        <li><strong>Portail principal :</strong> interrupteur au comptoir, extraction possible 60 secondes après, zone chaude et réutilisable</li>
+        <li><strong>Quai :</strong> interrupteur dans la zone accessoires, débloque l'extraction de la zone entrepôt sans limite de temps une fois activée</li>
+        <li>En zone Lockdown, un point supplémentaire s'ouvre aléatoirement 5 minutes avant la fin du raid, parmi Sous-station / Zone de tournage / Salle d'interview</li>
+      </ul>
+    </div>
+    <div class="info-block">
+      <h3>À savoir avant d'y aller</h3>
+      <ul><li>La plupart des PNJ de cette carte utilisent des munitions à fort pouvoir de pénétration et visent avec précision — une armure de classe 5 ou plus est vivement recommandée</li></ul>
+    </div>
+
+    <a class="map-cta" href="https://maps.tcno.co/abi/tv-station" target="_blank" rel="noopener">Ouvrir la carte interactive →</a>
+    <div class="map-source">Carte : TroubleChute Interactive Maps</div>
+  </div>
+</section>
+
+<!-- NORTHRIDGE -->
+<section class="map-section" id="northridge">
+  <div class="map-section-inner">
+    <div class="map-head"><h2>Northridge</h2><span class="badge badge-hard">Difficile</span></div>
+    <p class="map-overview">District urbain en pente, ouvert en Saison 2. Immeubles à plusieurs étages et poste-frontière fortifié. Depuis la Saison 4, la carte a reçu une version hivernale enneigée.</p>
+    <div class="quick-facts"><span><strong>35 min</strong> de raid</span><span><strong>14</strong> opérateurs</span><span><strong>10</strong> extractions</span></div>
+
+    <div class="info-block">
+      <h3>Points d'extraction</h3>
+      <ul>
+        <li>Route vers les monts Onotos, Cachette de la tour de guet, Parking de la falaise, Mur brisé, Barrage, Point de transfert du lac gelé, Grotte du lac, Tunnels est et sud</li>
+        <li><strong>Station de téléphérique :</strong> payante, 5 000 Koen, attente de 180 secondes, portes fermées 5 secondes avant le départ</li>
+      </ul>
+    </div>
+    <div class="info-block">
+      <h3>Zones de loot à privilégier</h3>
+      <ul>
+        <li><strong>Northridge Hotel (haute valeur) :</strong> zone de combat la plus intense de la carte</li>
+        <li><strong>Cable Car Station (valeur moyenne) :</strong> au nord, nombreux points de loot et un coffre-fort gratuit</li>
+        <li><strong>Communication Station (valeur moyenne) :</strong> à l'ouest, coffre accessible sans clé</li>
+      </ul>
+    </div>
+
+    <a class="map-cta" href="https://maps.tcno.co/abi/northridge" target="_blank" rel="noopener">Ouvrir la carte interactive →</a>
+    <div class="map-source">Carte : TroubleChute Interactive Maps</div>
+  </div>
+</section>
+
+<!-- PORT -->
+<section class="map-section" id="port">
+  <div class="map-section-inner">
+    <div class="map-head"><h2>Port</h2><span class="badge badge-extreme">Extrême</span></div>
+    <p class="map-overview">Terminal à conteneurs et zone douanière. Longues allées coupées par des labyrinthes de conteneurs empilés — une carte qui favorise les embuscades.</p>
+    <div class="quick-facts"><span><strong>35 min</strong> de raid</span><span><strong>14</strong> opérateurs</span><span><strong>6</strong> extractions</span></div>
+
+    <div class="info-block">
+      <h3>Points d'extraction</h3>
+      <ul>
+        <li>Entrée des égouts, Nord du bureau de poste, Administration (ouest), Tulip Street (est), Avant-poste ouest</li>
+        <li><strong>Héliport :</strong> interrupteur sous tente, extraction par hélicoptère après 2 minutes — les portes se ferment 3 secondes avant le décollage</li>
+      </ul>
+    </div>
+    <div class="info-block">
+      <h3>Zones de loot à privilégier</h3>
+      <ul>
+        <li><strong>Administration Building (haute valeur) :</strong> plus grosse zone chaude de la carte, un boss y apparaît et un coffre-fort gratuit s'y trouve — plusieurs pièges à grenades signalés aux étages 2 et 3</li>
+        <li><strong>Restaurant (valeur moyenne) :</strong> à l'ouest, coffre-fort gratuit à l'étage</li>
+      </ul>
+    </div>
+
+    <a class="map-cta disabled">Carte interactive pas encore disponible</a>
+    <div class="map-source">On ajoutera le lien dès qu'un outil communautaire couvrira cette carte</div>
+  </div>
+</section>
+
+<!-- GUOYAPO AIRPORT -->
+<section class="map-section" id="airport" style="border-bottom:none;">
+  <div class="map-section-inner">
+    <div class="map-head"><h2>Guoyapo Airport</h2><span class="badge badge-extreme">Extrême</span></div>
+    <p class="map-overview">Ancien aéroport civil désaffecté, ajouté en Saison 4. C'est la plus grande carte du jeu et celle avec le raid le plus long, avec le plafond de valeur d'équipement autorisé le plus élevé et les récompenses les plus riches.</p>
+    <div class="quick-facts"><span><strong>40 min</strong> de raid</span><span><strong>16</strong> opérateurs</span></div>
+
+    <div class="info-block">
+      <ul><li>Carte encore relativement récente et moins documentée par la communauté que les autres secteurs. Détails précis à venir dès que des informations fiables seront confirmées.</li></ul>
+    </div>
+
+    <a class="map-cta" href="https://maps.tcno.co/abi/airport" target="_blank" rel="noopener">Ouvrir la carte interactive →</a>
+    <div class="map-source">Carte : TroubleChute Interactive Maps</div>
+  </div>
+</section>
+
+<div class="wrap">
+  <p class="src-note">Informations compilées et reformulées à partir de guides communautaires publics. Les cartes interactives ouvertes depuis cette page sont tenues par des outils tiers (TroubleChute) et ne sont ni hébergées ni tenues par ABI News.</p>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <span>© ABI News — site non officiel, tenu par des fans.</span>
+    <div class="footer-links">
+      <a href="https://www.arenabreakoutinfinite.com" target="_blank" rel="noopener">Site officiel</a>
+      <a href="https://store.steampowered.com/app/2073620" target="_blank" rel="noopener">Steam</a>
+      <a href="/mentions-legales.html">Mentions légales</a>
+      <a href="/confidentialite.html">Confidentialité</a>
+      <a href="/cookies.html">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    var root = document.documentElement;
+    var btn = document.getElementById('themeToggle');
+    var saved = null;
+    try { saved = localStorage.getItem('kamona-theme'); } catch (e) {}
+    if (saved) root.setAttribute('data-theme', saved);
+    btn.addEventListener('click', function() {
+      var current = root.getAttribute('data-theme');
+      var isDarkNow = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      var next = isDarkNow ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('kamona-theme', next); } catch (e) {}
+    });
+  })();
+</script>
+
+</body>
+</html>
