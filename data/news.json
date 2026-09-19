@@ -11,6 +11,83 @@
     "source_url": "https://arenabreakout-infinite.com/updates/s7-utopia/"
   },
   {
+    "id": "2026-09-15-season-7-utopia-arrives-with-massive-rew",
+    "date": "2026-09-15",
+    "date_label": "15 SEPT.\n2026",
+    "category": "saison",
+    "tag": "SAISON 7",
+    "title": "Utopia lance le Mode Zombie et une refonte majeure du jeu",
+    "summary": "La saison 7, baptisée Utopia, introduit le Mode Zombie avec deux variantes : Infected Area (PvPvE sur Farm, Valley et Airport) et Endless (PvE en escouade). Le patch ajoute deux nouvelles armes, un marchand de terrain en raid, des masteries de base inédites, une refonte du Workbench avec la recherche d'amélioration, ainsi que de nombreux ajustements d'équilibrage sur les armes et l'équipement. Le Secteur Hostile et la Vallée Distordue sont temporairement retirés au profit de ces nouveautés.",
+    "source_label": "annonce officielle Steam",
+    "source_url": "https://store.steampowered.com/news/app/2073620/view/672879191292643732"
+  },
+  {
+    "id": "2026-09-08-season-7-utopia-arrives-sep-16",
+    "date": "2026-09-08",
+    "date_label": "8 SEPT.\n2026",
+    "category": "saison",
+    "tag": "SAISON 7",
+    "title": "Saison 7 Utopia : les modes zombies débarquent le 16 septembre",
+    "summary": "MoreFun Studios annonce la Saison 7: Utopia pour le 16 septembre 2026, avec l'arrivée de deux modes zombies inédits : Infected Zone (PvPvE) et Zombie Endless (PvE pur). Deux nouvelles armes, A545 et AK-15SC, ainsi que des accessoires saisonniers viennent enrichir l'arsenal, accompagnés d'ajustements d'équilibrage attendus par la communauté. Le retour de combat est aussi retravaillé, avec de nouvelles animations, un récap des dégâts et le partage des faits marquants de raid.",
+    "source_label": "annonce officielle Steam",
+    "source_url": "https://store.steampowered.com/news/app/2073620/view/672879191292643766"
+  },
+  {
+    "id": "2026-08-26-arena-breakout-infinite-bans-notice-augu",
+    "date": "2026-08-26",
+    "date_label": "26 AOÛT\n2026",
+    "category": "maj",
+    "tag": "ANTI-TRICHE",
+    "title": "Bilan de la lutte anti-triche du 10 au 23 août",
+    "summary": "L'équipe de sécurité d'Arena Breakout: Infinite publie son rapport de sanctions pour la période du 10 au 23 août. Près de 11 856 comptes ont été bannis pour triche, dont 2 424 bannissements de dix ans et plus de 1 000 bannissements d'appareils. Plus de 63 000 joueurs lésés ont été dédommagés, et le studio rappelle son système de signalement en jeu et sur les réseaux sociaux.",
+    "source_label": "annonce officielle Steam",
+    "source_url": "https://store.steampowered.com/news/app/2073620/view/672878557433692283"
+  },
+  {
+    "id": "2026-08-12-arena-breakout-infinite-bans-notice-augu",
+    "date": "2026-08-12",
+    "date_label": "12 AOÛT\n2026",
+    "category": "maj",
+    "tag": "ANTI-TRICHE",
+    "title": "Nouvelle vague de bannissements contre les tricheurs",
+    "summary": "L'équipe de sécurité d'Arena Breakout: Infinite publie son bilan anti-triche pour la période du 27 juillet au 9 août. Plus de 11 000 comptes ont été bannis, dont près de 1 100 exclusions de dix ans, et près de 2 000 joueurs ayant collaboré avec des tricheurs ont vu leur Koen confisqué. Le studio rappelle sa politique de tolérance zéro et encourage les joueurs à signaler les comportements suspects via la fonction de report ou les réseaux sociaux.",
+    "source_label": "annonce officielle Steam",
+    "source_url": "https://store.steampowered.com/news/app/2073620/view/672877288649392262"
+  },
+  {
+    "id": "2026-08-07-kamona-summer-festival",
+    "date": "2026-08-07",
+    "date_label": "7 AOÛT\n2026",
+    "category": "evenement",
+    "tag": "ÉVÉNEMENT",
+    "title": "Festival d'été à Kamona",
+    "summary": "Dès le 13 août, Arena Breakout: Infinite lance son Festival d'été avec le retour du Tournoi des Seigneurs de guerre (règles revues : transparence des équipes, classement au butin, matchmaking par rang) et du mode combat au corps-à-corps à la Station TV. Un nouvel objet interactif, le pistolet à bulles, fait son apparition avec des défis d'évolution et des récompenses cosmétiques dont un modèle collector. Les joueurs peuvent aussi obtenir gratuitement des tenues, des skins d'armes et des passes de ravitaillement via les connexions quotidiennes, ainsi que tenter leur chance à un tirage au sort pour une carte graphique RTX 5060 sur Discord et X.",
+    "source_label": "annonce officielle Steam",
+    "source_url": "https://store.steampowered.com/news/app/2073620/view/717912651083022673"
+  },
+  {
+    "id": "2026-08-05-dma-guard-operation-guide",
+    "date": "2026-08-05",
+    "date_label": "5 AOÛT\n2026",
+    "category": "maj",
+    "tag": "SÉCURITÉ",
+    "title": "Guide de configuration de DMA Guard",
+    "summary": "MoreFun Studios déploie DMA Guard, une nouvelle protection matérielle contre les attaques DMA visant à renforcer la sécurité anti-triche. Cette fonctionnalité nécessite l'activation de VT-d (Intel) ou IOMMU (AMD) dans le BIOS, sans quoi des messages d'avertissement peuvent apparaître au lancement du jeu. Le studio publie un guide détaillé selon les marques de cartes mères pour accompagner les joueurs dans cette configuration.",
+    "source_label": "annonce officielle Steam",
+    "source_url": "https://store.steampowered.com/news/app/2073620/view/669498320818800809"
+  },
+  {
+    "id": "2026-07-30-july-30-live-update-announcement",
+    "date": "2026-07-30",
+    "date_label": "30 JUIL.\n2026",
+    "category": "maj",
+    "tag": "PATCH",
+    "title": "Mise à jour live du 30 juillet : corrections et ajustements",
+    "summary": "Une mise à jour live est prévue le 30 juillet à 03h00 UTC, corrigeant plusieurs bugs sur les cartes Airport et Armory, l'animation du Legacy Knife et l'affichage de l'icône du personnage après élimination. Le mode Hostile Sector: Solo Infiltration reçoit un meilleur guidage, et les alertes liées aux objets expirés sont clarifiées. Les exigences d'entrée du mode Melee-Only à TV Station passent à 200 000, tandis que les multiplicateurs des meilleures places dans Airport Supplies Drops sont revalorisés.",
+    "source_label": "annonce officielle Steam",
+    "source_url": "https://store.steampowered.com/news/app/2073620/view/669498320818799212"
+  },
+  {
     "id": "s6-white-nights",
     "date": "2026-06-29",
     "date_label": "29 JUIN\n2026",
