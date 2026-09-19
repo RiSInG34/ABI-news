@@ -182,146 +182,80 @@
 </footer>
 
 <script>
-  var quests = [
-    ["Débuts", "Debut", ["Éliminer 5 Scavs sur Customs", "Remettre 2 fusils à pompe MP-133"], "+1 700 XP · Prapor +0.08 · 15 000 Roubles · Pistolet PM 9x18 · Débloque l'achat de l'AKS-74U (niveau 1)"],
-    ["Vie luxueuse", "Luxurious life", ["Localiser la boutique d'alcools sur Ground Zero", "Localiser et récupérer la bouteille de vin", "Extraire", "Remettre la bouteille à Prapor"], "Carabine Molot VPO-136 \"Vepr-KM\" 7.62x39 · 5 packs de munitions · 1 chargeur AK 30 coups (niveau 1, après Débuts, débloque Vérification des antécédents)"],
-    ["Vérification des antécédents", "Background Check", ["Localiser et récupérer la montre de poche en bronze sur Customs", "La remettre à Prapor", "Obtenir la clé du camion-citerne"], "+1 800 XP · Prapor +0.03 · 15 000 Roubles · Fusil SKS Default · 3 munitions FMJ (niveau 2, après Vie luxueuse, débloque Pique-nique sous les balles)"],
-    ["Livraison du passé", "Delivery from the past", ["Poser la clé USB sécurisée dans la zone industrielle de Factory", "Récupérer la seconde clé USB dans le bureau", "Extraire en vie"], "XP · Roubles · Réputation Prapor"],
-    ["Mission de recherche", "Search Mission", ["Localiser le convoi disparu de Prapor sur Woods", "Localiser le camp temporaire USEC", "Survivre et extraire"], "+2 000 XP · Prapor +0.04 · 22 000 Roubles · Boussole EYE MK2 (débloqué niveau 5, après Débuts)"],
-    ["Ravitaillement en carburant", "Oil Run", ["Marquer les 4 citernes de carburant sur Customs avec un marqueur MS2000", "Extraire"], "+2 800 XP · Prapor +0.03 · Jaeger -0.01 · 30 000 Roubles · Réservoir de carburant expéditionnaire · 2 marqueurs MS2000 (niveau 5, après Livraison du passé)"],
-    ["Preuves compromettantes", "Bad rep evidence", ["Récupérer le Dossier sécurisé 0031 dans une cabane portable sur Customs", "Survivre et extraire avec le dossier", "Remettre le dossier à Prapor"], "+4 100 XP · Prapor +0.03 · 35 000 Roubles (niveau 6)"],
-    ["Belka et Strelka", "Belka and Strelka", ["Survivre et extraire de Customs par le Passage Ferroviaire"], "+8 200 XP · Prapor +0.01 · 44 000 Roubles · 5 grenades RGD-5 (niveau 5)"],
-    ["Cornets de glace", "Ice cream cones", ["Trouver un chargeur AK-74 5.45x39 6L31 60 coups en raid", "Obtenir la clé du bunker dans le dortoir d'un employé TerraGroup (optionnel)", "Localiser le bunker fermé sur Woods (optionnel)", "Remettre les objets à Prapor"], "+5 200 XP (niveau 9, débloque Facteur Pat partie 1 et Secouer le caissier)"],
-    ["Secouer le caissier", "Shaking up the Teller", ["Trouver la mallette sécurisée dans la chambre 203 du dortoir sur Customs", "Remettre la mallette à Prapor"], "5 900 XP (niveau 15)"],
-    ["Facteur Pat — partie 1", "Postman Pat. Part 1"],
-    ["Possesseur", "Possessor"],
-    ["Le Bunker", "The Bunker"],
-    ["Le Bunker — partie 2", "The bunker. Part 2"],
-    ["Vous avez du courrier", "You've Got Mail", ["Récupérer le courrier recommandé sur Streets of Tarkov (près de l'hôtel Pinewood)", "Remettre la lettre à Prapor"], "4 800 XP · Prapor +0.02 · 29 470 Roubles · Casque 6B47 Ratnik-BSh · 30 munitions 5.45x39mm BP"],
-    ["Pas de place pour les renégats", "No Place for Renegades"],
-    ["Le Justicier — partie 1", "The Punisher - Part 1"],
-    ["Le Justicier — partie 2", "The Punisher - Part 2"],
-    ["Le Justicier — partie 3", "The Punisher - Part 3"],
-    ["Travail facile", "Easy Job"],
-    ["Reconnaissance", "Reconnaissance"],
-    ["Documents", "Documents"],
-    ["Le Justicier — partie 4", "The Punisher - Part 4"],
-    ["Le Justicier — partie 5", "The Punisher - Part 5"],
-    ["Grenadier", "Grenadier"],
-    ["Le Justicier — partie 6", "The Punisher. Part 6"],
-    ["Anesthésie", "Anesthesia"],
-    ["Matériaux réglementés", "Regulated Materials"],
-    ["L'import de Tarkov", "The Tarkov Import"],
-    ["Pouvoir de persuasion", "Power of Persuasion"],
-    ["Un travail pour un patriote", "Job for a Patriot"],
-    ["Prendre l'air", "Getting Some Air"],
-    ["Simple comme bonjour", "Easy-Breazy"],
-    ["Expérience unique", "Unique Experience"],
-    ["Médiateur parfait", "Perfect mediator"],
-    ["Intimidateur", "Intimidator"],
-    ["Analyse sensorielle — partie 2 (VBTT)", "Sensory Analysis - Part 2 APC"],
-    ["Sceller une amitié", "Forge a Friendship"],
-    ["L'art de l'explosion", "The Art of Explosion"],
-    ["Réponse inévitable", "Inevitable response"],
-    ["Commande spéciale", "Special Order"],
-    ["Vidange", "Oil Change"],
-    ["Niveau de fidélité 1", "Loyalty level - 1"],
-    ["Niveau de fidélité 2", "Loyalty level - 2"],
-    ["Niveau de fidélité 3", "Loyalty level - 3"],
-    ["Niveau de fidélité 4", "Loyalty level - 4"],
-    ["Tâches essentielles", "Essential tasks"],
-    ["Preuve irréfutable", "Ironclad Proof"],
-    ["[Brèche KORD] Invités surprises — partie 1", "Uninvited Guests - Part 1"],
-    ["[Brèche KORD] Jeter le filet", "Cast the Net"],
-    ["[Brèche KORD] Connais ton ennemi", "Know your enemy"],
-    ["[Brèche KORD] Marche arrière", "Reverse Gear"],
-    ["[Brèche KORD] Qu'y a-t-il dans le sac ?", "What's in the Bag?"],
-    ["[Brèche KORD] Savoir interdit", "Forbidden knowledge"],
-    ["[Brèche KORD] Loup déguisé en agneau", "Wolf in Sheep's Clothing"],
-    ["Brouillard de guerre", "Fog of War"],
-    ["Abonné temporairement indisponible", "Subscriber temporarily unavailable"],
-    ["Assistance \u00ab tout compris \u00bb", "\"All-inclusive\" support"],
-    ["Semer la filature", "Lose the tail"],
-    ["Indicatif Malachite", "Callsign Malachite"],
-    ["Le bon vieux temps — partie 1", "The Good Times - Part 1"],
-    ["Sans rancune", "No offence"],
-    ["Couloir vert", "Green Corridor"],
-    ["Rois des toits", "Kings of the Rooftops"],
-    ["Escorte", "Escort"],
-    ["Le meilleur métier du monde", "Best Job in the World"],
-    ["Gloire au PCUS", "Glory to CPSU"],
-    ["Gendarmerie — Vigile de centre commercial", "Gendarmerie - Mall Cop"],
-    ["Gendarmerie — Vos billets, s'il vous plaît", "Gendarmerie - Tickets, Please"],
-    ["Patrouille de quartier", "District Patrol"],
-    ["Capture d'avant-postes", "Capturing Outposts"],
-    ["Propriétés tout autour", "Properties All Around"],
-    ["Bâton dans les roues", "Stick in the Wheel"],
-    ["L'enfer sur terre — partie 1", "Hell on Earth - Part 1"],
-    ["L'enfer sur terre — partie 2", "Hell on Earth - Part 2"],
-    ["Le bon vieux temps — partie 2", "The Good Times - Part 2"],
-    ["Spectateur", "Viewer"],
-    ["Gros client", "Big customer"],
-    ["Communications spéciales", "Special Comms"],
-    ["Pique-nique sous les balles", "Shootout picnic", ["Neutraliser 15 Scavs sur Woods"], "+2 500 XP · Prapor +0.1 · 20 000 Roubles · AKS-74U 5.45x39"],
-    ["Retard de livraison — partie 1", "Shipping Delay - Part 1"],
-    ["Notre propre terre", "Our Own Land"],
-    ["À moitié vide", "Half-Empty"]
-  ];
-
   var container = document.getElementById('questList');
   var STORAGE_KEY = 'tarkov-prapor-done';
   var done = {};
   try { done = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch (e) {}
 
-  quests.forEach(function(q, i) {
-    var hasDetails = q.length > 2;
-    var wrap = document.createElement('div');
-    wrap.className = 'quest-wrap';
+  function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
 
-    var row = document.createElement('div');
-    row.className = 'quest-row' + (done[i] ? ' done' : '') + (hasDetails ? ' has-details' : '');
-    row.innerHTML =
-      '<input type="checkbox" class="quest-check" data-idx="' + i + '"' + (done[i] ? ' checked' : '') + '>' +
-      '<span class="quest-num">' + (i + 1) + '</span>' +
-      '<span class="quest-name-fr">' + q[0] + '</span>' +
-      '<span class="quest-name-en">' + q[1] + '</span>' +
-      (hasDetails ? '' : '<span class="pending-tag">objectifs à venir</span>');
-    wrap.appendChild(row);
+  function renderQuests(quests) {
+    quests.forEach(function(q, i) {
+      var hasDetails = !!(q.objectives && q.objectives.length);
+      var wrap = document.createElement('div');
+      wrap.className = 'quest-wrap';
 
-    if (hasDetails) {
-      var details = document.createElement('div');
-      details.className = 'quest-details';
-      var ul = document.createElement('ul');
-      q[2].forEach(function(obj) {
-        var li = document.createElement('li');
-        li.textContent = obj;
-        ul.appendChild(li);
-      });
-      details.appendChild(ul);
-      var rewardP = document.createElement('div');
-      rewardP.className = 'reward';
-      rewardP.textContent = 'Récompenses : ' + q[3];
-      details.appendChild(rewardP);
-      wrap.appendChild(details);
-    }
+      var row = document.createElement('div');
+      row.className = 'quest-row' + (done[q.id] ? ' done' : '') + (hasDetails ? ' has-details' : '');
+      row.innerHTML =
+        '<input type="checkbox" class="quest-check" data-idx="' + escapeHtml(q.id) + '"' + (done[q.id] ? ' checked' : '') + '>' +
+        '<span class="quest-num">' + (i + 1) + '</span>' +
+        '<span class="quest-name-fr">' + escapeHtml(q.name_fr) + '</span>' +
+        '<span class="quest-name-en">' + escapeHtml(q.name_en) + '</span>' +
+        (hasDetails ? '' : '<span class="pending-tag">objectifs à venir</span>');
+      wrap.appendChild(row);
 
-    var nameSpan = row.querySelector('.quest-name-fr');
-    if (hasDetails && nameSpan) {
-      nameSpan.addEventListener('click', function() {
-        wrap.classList.toggle('open');
-      });
-    }
+      if (hasDetails) {
+        var details = document.createElement('div');
+        details.className = 'quest-details';
+        var ul = document.createElement('ul');
+        q.objectives.forEach(function(obj) {
+          var li = document.createElement('li');
+          li.textContent = obj;
+          ul.appendChild(li);
+        });
+        details.appendChild(ul);
+        var rewardP = document.createElement('div');
+        rewardP.className = 'reward';
+        rewardP.textContent = 'Récompenses : ' + q.reward;
+        details.appendChild(rewardP);
+        wrap.appendChild(details);
+      }
 
-    container.appendChild(wrap);
-  });
+      var nameSpan = row.querySelector('.quest-name-fr');
+      if (hasDetails && nameSpan) {
+        nameSpan.addEventListener('click', function() {
+          wrap.classList.toggle('open');
+        });
+      }
 
-  container.addEventListener('change', function(e) {
-    if (!e.target.classList.contains('quest-check')) return;
-    var idx = e.target.getAttribute('data-idx');
-    done[idx] = e.target.checked;
-    e.target.closest('.quest-row').classList.toggle('done', e.target.checked);
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(done)); } catch (err) {}
-  });
+      container.appendChild(wrap);
+    });
+
+    container.addEventListener('change', function(e) {
+      if (!e.target.classList.contains('quest-check')) return;
+      var idx = e.target.getAttribute('data-idx');
+      done[idx] = e.target.checked;
+      e.target.closest('.quest-row').classList.toggle('done', e.target.checked);
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(done)); } catch (err) {}
+    });
+  }
+
+  fetch('data/tarkov-quests.json?_=' + Date.now())
+    .then(function(res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json();
+    })
+    .then(function(quests) {
+      renderQuests(quests);
+    })
+    .catch(function(err) {
+      container.innerHTML = '<p style="padding:16px; color: var(--text-muted);">Impossible de charger les quêtes (' + escapeHtml(err.message) + ').</p>';
+    });
 
   // Theme toggle
   (function() {
