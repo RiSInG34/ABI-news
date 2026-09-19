@@ -1,1 +1,335 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Armures — ABI News</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #12130F; --bg-panel: #1C1E15; --bg-panel-raised: #23261A;
+    --text: #EDE8D8; --text-muted: #A7A38C; --accent: #E2762E; --accent-2: #7C8560;
+    --border: #34362A; --tier-high: #C9A24A; --tier-mid: #8A8F6B;
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #EDE7D6; --bg-panel: #F5F1E4; --bg-panel-raised: #FFFDF6;
+      --text: #201F16; --text-muted: #5B5A47; --accent: #C15A1F;
+      --accent-2: #55613F; --border: #C9C2A6; --tier-high: #A87C1E; --tier-mid: #5F6B48;
+      color-scheme: light;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #EDE7D6; --bg-panel: #F5F1E4; --bg-panel-raised: #FFFDF6;
+    --text: #201F16; --text-muted: #5B5A47; --accent: #C15A1F;
+    --accent-2: #55613F; --border: #C9C2A6; --tier-high: #A87C1E; --tier-mid: #5F6B48;
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans', sans-serif; line-height: 1.55; }
+  a { color: inherit; }
+
+  header { border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 60; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 18px 24px; max-width: 900px; margin: 0 auto; }
+  .brand { display: flex; align-items: baseline; gap: 10px; }
+  .brand-mark { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: 0.02em; }
+  .brand-mark span { color: var(--accent); }
+  .brand-sub { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-muted); }
+  nav { display: flex; gap: 20px; font-size: 14px; }
+  nav a { text-decoration: none; color: var(--text-muted); border-bottom: 1px solid transparent; padding-bottom: 2px; }
+  nav a:hover, nav a.current { color: var(--text); border-color: var(--accent); }
+  .theme-toggle { background: none; border: 1px solid var(--border); color: var(--text-muted); border-radius: 3px; padding: 6px 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; cursor: pointer; }
+  .theme-toggle:hover { color: var(--text); border-color: var(--accent); }
+  @media (max-width: 760px) { nav { display: none; } }
+
+  .submenu-wrap { position: sticky; top: 61px; z-index: 55; background: var(--bg); border-bottom: 1px solid var(--border); overflow-x: auto; white-space: nowrap; }
+  .submenu { display: inline-flex; gap: 4px; padding: 10px 24px; max-width: 900px; margin: 0 auto; }
+  .submenu a { text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--text-muted); border: 1px solid var(--border); border-radius: 3px; padding: 6px 12px; white-space: nowrap; }
+  .submenu a:hover { color: var(--text); border-color: var(--accent-2); }
+
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+  .hero { padding: 40px 24px 28px; border-bottom: 1px solid var(--border); }
+  .hero-inner { max-width: 900px; margin: 0 auto; }
+  .hero h1 { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: clamp(26px, 5vw, 38px); margin: 0 0 12px; }
+  .hero p { color: var(--text-muted); max-width: 66ch; margin: 0 0 14px; font-size: 15px; }
+  .note-box {
+    background: var(--bg-panel); border-left: 3px solid var(--accent); border-radius: 0 4px 4px 0;
+    padding: 14px 18px; font-size: 13.5px; color: var(--text-muted); max-width: 66ch;
+  }
+
+  .class-section { padding: 40px 24px; border-bottom: 1px solid var(--border); scroll-margin-top: 115px; }
+  .class-section-inner { max-width: 900px; margin: 0 auto; }
+
+  .class-head { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 10px; }
+  .class-num {
+    font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 34px; color: var(--tier-high);
+    line-height: 1;
+  }
+  .class-head h2 { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 18px; margin: 0; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.03em; }
+
+  .class-desc { color: var(--text-muted); font-size: 15px; max-width: 74ch; margin: 0 0 18px; }
+
+  .stat-row { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 20px; }
+  .stat { font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--text-muted); }
+  .stat strong { display: block; color: var(--text); font-size: 15px; font-family: 'Oswald', sans-serif; font-weight: 500; margin-bottom: 2px; }
+
+  .ammo-block {
+    background: var(--bg-panel); border: 1px solid var(--border); border-radius: 4px; padding: 18px 20px;
+  }
+  .ammo-block h3 { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 13px; margin: 0 0 12px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent-2); }
+  .ammo-list { display: flex; flex-wrap: wrap; gap: 8px; }
+  .ammo-chip {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; background: var(--bg-panel-raised);
+    border: 1px solid var(--border); border-radius: 3px; padding: 5px 10px; color: var(--text);
+  }
+  .ammo-chip .pen { color: var(--accent); margin-left: 4px; }
+
+  table.matrix { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 13px; }
+  table.matrix th, table.matrix td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+  table.matrix th { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--text-muted); }
+  table.matrix td { color: var(--text-muted); }
+  table.matrix td.num { color: var(--text); font-family: 'IBM Plex Mono', monospace; }
+  .reliable { color: var(--accent-2); }
+  .struggle { color: var(--text-muted); }
+
+  .src-note { margin-top: 24px; font-size: 12px; color: var(--text-muted); font-family: 'IBM Plex Mono', monospace; }
+
+  footer { padding: 34px 24px 50px; }
+  .footer-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px; font-size: 13px; color: var(--text-muted); }
+  .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+  .footer-links a { text-decoration: none; color: var(--text-muted); }
+  .footer-links a:hover { color: var(--accent); }
+
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-mark">ABI <span>NEWS</span></span>
+      <span class="brand-sub">/// ARMURES</span>
+    </div>
+    <nav>
+      <a href="/">Actualités</a>
+      <a href="/#patchs">Patch notes</a>
+      <a href="/cartes.html">Cartes</a>
+      <a href="/armures.html" class="current">Armures</a>
+      <a href="/#apropos">À propos</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Changer de thème">MODE</button>
+  </div>
+</header>
+
+<div class="submenu-wrap">
+  <div class="submenu">
+    <a href="#classe1">Classe 1</a>
+    <a href="#classe2">Classe 2</a>
+    <a href="#classe3">Classe 3</a>
+    <a href="#classe4">Classe 4</a>
+    <a href="#classe5">Classe 5</a>
+    <a href="#classe6">Classe 6</a>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Les classes d'armure, de 1 à 6</h1>
+    <p>Ce que protège chaque classe, ses contreparties (poids, vitesse, ergonomie), et les munitions qui la percent de façon fiable. Le jeu ne va que de la Classe 1 à la Classe 6 — il n'existe pas de "T0" officiel, le terme désigne simplement l'absence d'armure.</p>
+    <div class="note-box">Le jeu ne publie pas de vrai pourcentage de pénétration. La mécanique compare le <strong style="color:var(--text)">niveau de perforation</strong> de la balle à la classe de l'armure, avec une part d'aléatoire et l'usure de la durabilité qui entre en jeu. Ce tableau indique donc, pour chaque classe, quelles munitions la traversent de façon fiable — la donnée réellement utile en jeu — plutôt qu'un pourcentage inventé.</div>
+  </div>
+</section>
+
+<section class="class-section" id="classe1">
+  <div class="class-section-inner">
+    <div class="class-head"><span class="class-num">1</span><h2>Protection minimale</h2></div>
+    <p class="class-desc">Arrête surtout les munitions de pistolet basiques. Négligeable face à tout ce qui tire en 5.45, 5.56 ou 7.62.</p>
+    <div class="stat-row">
+      <div class="stat"><strong>1-4%</strong>malus vitesse</div>
+      <div class="stat"><strong>Faible</strong>malus ergonomie</div>
+      <div class="stat"><strong>Bas</strong>coût marché</div>
+    </div>
+    <div class="ammo-block">
+      <h3>Munitions qui la traversent (toutes)</h3>
+      <div class="ammo-list">
+        <span class="ammo-chip">.45 FMJ <span class="pen">pén. 19</span></span>
+        <span class="ammo-chip">12x70mm Dual Shell <span class="pen">pén. 19</span></span>
+        <span class="ammo-chip">7.62x25mm PT <span class="pen">pén. 19</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="class-section" id="classe2">
+  <div class="class-section-inner">
+    <div class="class-head"><span class="class-num">2</span><h2>Protection légère</h2></div>
+    <p class="class-desc">Stoppe la plupart des munitions de pistolet standards et certaines munitions faibles de fusil. Reste inefficace contre l'armement principal d'un raid classique.</p>
+    <div class="stat-row">
+      <div class="stat"><strong>2-6%</strong>malus vitesse</div>
+      <div class="stat"><strong>Léger</strong>malus ergonomie</div>
+    </div>
+    <div class="ammo-block">
+      <h3>Munitions qui la traversent (toutes)</h3>
+      <div class="ammo-list">
+        <span class="ammo-chip">12x70mm GT Slug <span class="pen">pén. 27</span></span>
+        <span class="ammo-chip">7.62x39mm US <span class="pen">pén. 27</span></span>
+        <span class="ammo-chip">5.45x39mm PS <span class="pen">pén. 25</span></span>
+        <span class="ammo-chip">5.56x45mm FMJ Hunting <span class="pen">pén. 25</span></span>
+        <span class="ammo-chip">.44 LFNP <span class="pen">pén. 23</span></span>
+        <span class="ammo-chip">5.7x28mm SS197SR <span class="pen">pén. 22</span></span>
+        <span class="ammo-chip">7.62x25mm Pst <span class="pen">pén. 22</span></span>
+        <span class="ammo-chip">9x19mm Pst <span class="pen">pén. 20</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="class-section" id="classe3">
+  <div class="class-section-inner">
+    <div class="class-head"><span class="class-num">3</span><h2>Protection intermédiaire</h2></div>
+    <p class="class-desc">Gère la plupart des munitions de SMG et les munitions de fusil les plus faibles. Un standard raisonnable pour un raid classique à budget modéré, mais insuffisant face à un adversaire équipé en munitions perforantes.</p>
+    <div class="stat-row">
+      <div class="stat"><strong>4-9%</strong>malus vitesse</div>
+      <div class="stat"><strong>Modéré</strong>malus ergonomie</div>
+    </div>
+    <div class="ammo-block">
+      <h3>Munitions qui la traversent (toutes)</h3>
+      <div class="ammo-list">
+        <span class="ammo-chip">5.45x39mm PP <span class="pen">pén. 41</span></span>
+        <span class="ammo-chip">.44 SJHP <span class="pen">pén. 35</span></span>
+        <span class="ammo-chip">12x70mm Armor-Piercing Slug <span class="pen">pén. 35</span></span>
+        <span class="ammo-chip">5.56x45mm M855 <span class="pen">pén. 34</span></span>
+        <span class="ammo-chip">5.8x42mm DBP87 <span class="pen">pén. 34</span></span>
+        <span class="ammo-chip">12x70mm Flechette Buckshot <span class="pen">pén. 33</span></span>
+        <span class="ammo-chip">7.62x39mm PS <span class="pen">pén. 33</span></span>
+        <span class="ammo-chip">7.62x54mm T46M <span class="pen">pén. 33</span></span>
+        <span class="ammo-chip">9x39mm SP5 <span class="pen">pén. 33</span></span>
+        <span class="ammo-chip">.45 AP <span class="pen">pén. 32</span></span>
+        <span class="ammo-chip">5.7x28mm L191 <span class="pen">pén. 32</span></span>
+        <span class="ammo-chip">7.62x51mm BPZ <span class="pen">pén. 32</span></span>
+        <span class="ammo-chip">7.62x39mm T45M <span class="pen">pén. 31</span></span>
+        <span class="ammo-chip">9x19mm AP6.3 <span class="pen">pén. 30</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="class-section" id="classe4">
+  <div class="class-section-inner">
+    <div class="class-head"><span class="class-num">4</span><h2>Protection standard</h2></div>
+    <p class="class-desc">Stoppe la majorité des munitions de fusil courantes. C'est le seuil que visent la plupart des joueurs pour un raid "sérieux" sans exploser le budget.</p>
+    <div class="stat-row">
+      <div class="stat"><strong>6-12%</strong>malus vitesse</div>
+      <div class="stat"><strong>Notable</strong>malus ergonomie</div>
+    </div>
+    <div class="ammo-block">
+      <h3>Munitions qui la traversent (toutes)</h3>
+      <div class="ammo-list">
+        <span class="ammo-chip">9x39mm 7N9 <span class="pen">pén. 47</span></span>
+        <span class="ammo-chip">7.62x39mm BP <span class="pen">pén. 45</span></span>
+        <span class="ammo-chip">5.8x42mm DVP88 <span class="pen">pén. 44</span></span>
+        <span class="ammo-chip">.338 UPZ <span class="pen">pén. 42</span></span>
+        <span class="ammo-chip">.44 JSP <span class="pen">pén. 42</span></span>
+        <span class="ammo-chip">7.62x51mm M80 <span class="pen">pén. 42</span></span>
+        <span class="ammo-chip">7.62x54mm LPS <span class="pen">pén. 42</span></span>
+        <span class="ammo-chip">5.45x39mm BP <span class="pen">pén. 41</span></span>
+        <span class="ammo-chip">5.7x28mm SS190 <span class="pen">pén. 41</span></span>
+        <span class="ammo-chip">9x39mm SP6 <span class="pen">pén. 41</span></span>
+        <span class="ammo-chip">5.56x45mm M855A1 <span class="pen">pén. 40</span></span>
+        <span class="ammo-chip">9x19mm 7N31 <span class="pen">pén. 40</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="class-section" id="classe5">
+  <div class="class-section-inner">
+    <div class="class-head"><span class="class-num">5</span><h2>Protection élevée</h2></div>
+    <p class="class-desc">Résiste de façon fiable aux munitions perforantes (AP) de calibre standard. Nécessite déjà des munitions haut de gamme en face pour être traversée de façon consistante.</p>
+    <div class="stat-row">
+      <div class="stat"><strong>10-15%</strong>malus vitesse</div>
+      <div class="stat"><strong>Fort</strong>malus ergonomie</div>
+    </div>
+    <div class="ammo-block">
+      <h3>Munitions qui la traversent (toutes)</h3>
+      <div class="ammo-list">
+        <span class="ammo-chip">.338 FMJ <span class="pen">pén. 54</span></span>
+        <span class="ammo-chip">7.62x39mm AP <span class="pen">pén. 54</span></span>
+        <span class="ammo-chip">7.62x54mm 7BT1 <span class="pen">pén. 54</span></span>
+        <span class="ammo-chip">5.7x28mm SS198 <span class="pen">pén. 53</span></span>
+        <span class="ammo-chip">5.8x42mm DVC12 <span class="pen">pén. 53</span></span>
+        <span class="ammo-chip">7.62x51mm M62 <span class="pen">pén. 53</span></span>
+        <span class="ammo-chip">5.45x39mm BS <span class="pen">pén. 52</span></span>
+        <span class="ammo-chip">5.56x45mm M995 <span class="pen">pén. 52</span></span>
+        <span class="ammo-chip">9x39mm 7N12 <span class="pen">pén. 50</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="class-section" id="classe6" style="border-bottom:none;">
+  <div class="class-section-inner">
+    <div class="class-head"><span class="class-num">6</span><h2>Protection maximale</h2></div>
+    <p class="class-desc">Le sommet de la hiérarchie. Seules les munitions les plus perforantes du jeu (calibres lourds comme le 7.62x51mm ou le .338 en version AP) la traversent de façon fiable. Très lourde et coûteuse — un choix qui suppose d'assumer la perte de mobilité qui va avec.</p>
+    <div class="stat-row">
+      <div class="stat"><strong>~18%</strong>malus vitesse (pièces lourdes)</div>
+      <div class="stat"><strong>Élevé</strong>malus ergonomie</div>
+      <div class="stat"><strong>Centaines de milliers</strong>de Koen sur le marché</div>
+    </div>
+    <div class="ammo-block">
+      <h3>Munitions qui la traversent (toutes)</h3>
+      <div class="ammo-list">
+        <span class="ammo-chip">7.62x54mm 7N37 <span class="pen">pén. 71</span></span>
+        <span class="ammo-chip">7.62x51mm M61 <span class="pen">pén. 68</span></span>
+        <span class="ammo-chip">.338 AP <span class="pen">pén. 64</span></span>
+        <span class="ammo-chip">7.62x54mm SNB <span class="pen">pén. 63</span></span>
+      </div>
+      <p style="font-size:12px; color:var(--text-muted); margin:12px 0 0;">Les deux premières (7.62x54mm 7N37 et 7.62x51mm M61) sont au niveau de perforation maximal du jeu (7) — elles surclassent la Classe 6 avec une marge confortable.</p>
+    </div>
+    <p class="plan-note" style="margin-top:16px; font-size:12.5px; color:var(--text-muted); border-left:2px solid var(--accent-2); padding-left:12px;">La durabilité de l'armure baisse à chaque impact, même quand la balle ne traverse pas — une armure à durabilité basse devient perforable par des munitions plus faibles que sa classe ne le laisse penser.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <p class="src-note">50 munitions couvrant les 14 calibres du jeu, compilées à partir des données publiques du patch en cours. Quelques munitions d'entraînement à pénétration quasi nulle (sous le seuil de la Classe 1) ne sont pas listées, car elles ne percent aucune armure de toute façon.</p>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <span>© ABI News — site non officiel, tenu par des fans.</span>
+    <div class="footer-links">
+      <a href="https://www.arenabreakoutinfinite.com" target="_blank" rel="noopener">Site officiel</a>
+      <a href="https://store.steampowered.com/app/2073620" target="_blank" rel="noopener">Steam</a>
+      <a href="/mentions-legales.html">Mentions légales</a>
+      <a href="/confidentialite.html">Confidentialité</a>
+      <a href="/cookies.html">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    var root = document.documentElement;
+    var btn = document.getElementById('themeToggle');
+    var saved = null;
+    try { saved = localStorage.getItem('kamona-theme'); } catch (e) {}
+    if (saved) root.setAttribute('data-theme', saved);
+    btn.addEventListener('click', function() {
+      var current = root.getAttribute('data-theme');
+      var isDarkNow = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      var next = isDarkNow ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('kamona-theme', next); } catch (e) {}
+    });
+  })();
+</script>
+
+</body>
+</html>
