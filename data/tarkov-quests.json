@@ -110,29 +110,46 @@
     "id": "postman-pat-part-1",
     "name_fr": "Facteur Pat — partie 1",
     "name_en": "Postman Pat. Part 1",
-    "objectives": null,
-    "reward": null
+    "objectives": [
+      "Trouver la lettre scellée sur Factory",
+      "Extraire de Factory avec le statut \"A survécu\"",
+      "Remettre la lettre scellée au Therapist"
+    ],
+    "reward": "Débloque la suite de la chaîne Facteur Pat (niveau 10)"
   },
   {
     "id": "possessor",
     "name_fr": "Possesseur",
     "name_en": "Possessor",
-    "objectives": null,
-    "reward": null
+    "objectives": [
+      "Trouver et récupérer le carnet de bord dans l'hélicoptère sur Factory",
+      "Remettre le carnet à Prapor après extraction"
+    ],
+    "reward": "Débloqué après Facteur Pat partie 1 (niveau 10)"
   },
   {
     "id": "the-bunker",
     "name_fr": "Le Bunker",
     "name_en": "The Bunker",
-    "objectives": null,
-    "reward": null
+    "objectives": [
+      "Localiser le bunker souterrain sur Reserve",
+      "Localiser la salle de contrôle du bunker",
+      "Extraire de Reserve avec le statut \"A survécu\""
+    ],
+    "reward": "Débloque Le Bunker partie 2"
   },
   {
     "id": "the-bunker-part-2",
     "name_fr": "Le Bunker — partie 2",
     "name_en": "The bunker. Part 2",
-    "objectives": null,
-    "reward": null
+    "objectives": [
+      "Localiser la porte hermétique menant à l'hôpital (fou blanc)",
+      "Localiser une des deux portes menant à l'académie (fou noir)",
+      "Localiser une des deux portes menant à la caserne n°1 (pion noir)",
+      "Localiser une des deux portes menant à la caserne n°2 (pion blanc)",
+      "Localiser la porte menant au centre de contrôle aérien (roi blanc)"
+    ],
+    "reward": "+9 200 XP · Prapor +0.03 · 25 000 Roubles · AKS-74UB 5.45x39 (niveau 15, requis pour le conteneur Kappa)"
   },
   {
     "id": "youve-got-mail",
@@ -148,8 +165,10 @@
     "id": "no-place-for-renegades",
     "name_fr": "Pas de place pour les renégats",
     "name_en": "No Place for Renegades",
-    "objectives": null,
-    "reward": null
+    "objectives": [
+      "Éliminer 5 Raiders dans le bunker de commandement sur Reserve"
+    ],
+    "reward": "+8 500 XP · Prapor +0.03 · 40 000 Roubles · AK-103 7.62x39 (niveau 17-21 selon la saison)"
   },
   {
     "id": "the-punisher-part-1",
@@ -176,8 +195,12 @@
     "id": "easy-job",
     "name_fr": "Travail facile",
     "name_en": "Easy Job",
-    "objectives": null,
-    "reward": null
+    "objectives": [
+      "Localiser l'hélicoptère près de la station de traitement des eaux sur Lighthouse",
+      "Marquer l'hélicoptère avec un marqueur MS2000",
+      "Survivre et extraire"
+    ],
+    "reward": "Débloque le sac à dos 6Sh118 Raid Backpack"
   },
   {
     "id": "reconnaissance",
