@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZONE ROUGE — Serveur DayZ FR Chernarus</title>
+<meta name="description" content="ZONE ROUGE, serveur DayZ français sur Chernarus : bots IA, équipes, toutes les armes, Gear Paragon. IP, mods et Discord.">
+<!-- AdSense : recolle ici la balise <script> AdSense qui était dans l'ancien index.html -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@700;900&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --olive: #1D1E20;
+    --olive-2: #2F3134;
+    --khaki: #E4E1DA;
+    --khaki-dim: #98958E;
+    --red: #B8261D;
+    --red-dark: #861A13;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--olive); color: var(--khaki);
+    font-family: 'Barlow', system-ui, sans-serif; font-size: 17px; line-height: 1.6;
+  }
+  a { color: var(--khaki); }
+  :focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+
+  /* Bandeau de zone */
+  .tape {
+    height: 14px;
+    background: repeating-linear-gradient(-45deg, var(--red) 0 18px, var(--olive) 18px 36px);
+  }
+
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; gap: 16px; flex-wrap: wrap; }
+  nav .logo { font-family: 'Big Shoulders Stencil Display', Impact, sans-serif; font-weight: 900; font-size: 24px; color: var(--red); text-decoration: none; }
+  nav .other { display: flex; gap: 10px; }
+  nav .other a {
+    font-size: 14px; font-weight: 600; text-decoration: none; color: var(--khaki-dim);
+    border: 1px solid var(--olive-2); padding: 6px 12px; border-radius: 3px;
+  }
+  nav .other a:hover { color: var(--khaki); border-color: var(--khaki-dim); }
+
+  /* Hero */
+  .hero { padding: 64px 0 72px; position: relative; overflow: hidden; overflow: clip; }
+  .hero h1, .hero p, .hero .tags, .hero .ip-box { position: relative; z-index: 2; }
+  .hero h1 {
+    font-family: 'Big Shoulders Stencil Display', Impact, sans-serif; font-weight: 900;
+    font-size: clamp(72px, 17vw, 190px); line-height: .85; margin: 0; color: var(--red);
+    letter-spacing: .01em;
+  }
+  .hero p.lead { font-size: 20px; max-width: 34em; margin: 24px 0 36px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 36px; padding: 0; list-style: none; }
+  .tags li { background: var(--olive-2); padding: 4px 12px; border-radius: 2px; font-size: 15px; }
+
+  .ip-box {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 14px;
+    border: 2px solid var(--khaki); padding: 22px 24px; max-width: 560px;
+    background-color: var(--olive-2);
+    background-image:
+      linear-gradient(90deg, rgba(20,21,23,.92) 0%, rgba(20,21,23,.75) 55%, rgba(20,21,23,.45) 100%),
+      url('images/chernarus.jpg');
+    background-size: cover; background-position: center;
+  }
+  .ip-box .server-name { width: 100%; font-weight: 600; font-size: 17px; padding-bottom: 12px; border-bottom: 1px solid var(--olive-2); }
+  .ip-box .label { font-size: 14px; color: var(--khaki-dim); width: 100%; }
+  .ip-box code { font-family: 'Barlow', sans-serif; font-weight: 600; font-size: 24px; flex: 1; word-break: break-all; }
+  button, .btn {
+    font: 600 16px 'Barlow', sans-serif; cursor: pointer; border: 0; border-radius: 2px;
+    background: var(--red); color: #fff; padding: 12px 20px; text-decoration: none; display: inline-block;
+  }
+  button:hover, .btn:hover { background: var(--red-dark); }
+
+
+  /* Rubalise scène de crime */
+  .crime {
+    position: absolute; left: 50%; top: 45%; width: 1400px; z-index: 0;
+    background: #F2C230; color: #141414; overflow: hidden; white-space: nowrap;
+    border-top: 3px solid #141414; border-bottom: 3px solid #141414;
+    box-shadow: 0 8px 18px rgba(0,0,0,.55);
+    font: 700 clamp(13px, 1.6vw, 17px)/1 'Barlow', sans-serif; letter-spacing: .08em;
+    padding: .55em 0;
+  }
+  .crime-a { transform: translate(-50%, -50%) rotate(-16deg); }
+  .crime-b { transform: translate(-50%, -50%) rotate(11deg); background: #E8B91F; }
+  .crime-text { display: inline-flex; animation: tape-scroll 40s linear infinite; }
+  .crime-b .crime-text { animation-direction: reverse; animation-duration: 55s; }
+  @keyframes tape-scroll { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .crime-text { animation: none; } }
+
+  /* Gyrophare d'alarme */
+  .title-row { display: flex; align-items: center; gap: clamp(28px, 6vw, 72px); }
+  .alarm { position: relative; width: clamp(80px, 13vw, 130px); flex-shrink: 0; }
+
+  /* faisceaux lumineux qui balaient la page */
+  .beams {
+    position: absolute; left: 50%; top: 42%; width: 900%; aspect-ratio: 1;
+    transform: translate(-50%, -50%); pointer-events: none; z-index: 0;
+    background: conic-gradient(from 0deg,
+      rgba(230,50,38,.38) 0deg, transparent 22deg, transparent 180deg,
+      rgba(230,50,38,.38) 180deg, transparent 202deg, transparent 360deg);
+    -webkit-mask: radial-gradient(circle, #000 4%, rgba(0,0,0,.5) 22%, transparent 55%);
+            mask: radial-gradient(circle, #000 4%, rgba(0,0,0,.5) 22%, transparent 55%);
+    animation: beam-spin 1.6s linear infinite;
+  }
+  @keyframes beam-spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+  .dome {
+    position: relative; z-index: 1; width: 100%; aspect-ratio: 1 / 0.9; overflow: hidden;
+    border-radius: 50% 50% 6% 6% / 62% 62% 6% 6%;
+    background: radial-gradient(ellipse at 50% 70%, #ff5a47 0%, #c9261b 45%, #5e0d08 100%);
+    box-shadow: 0 0 34px 6px rgba(230,50,38,.55), inset 0 -8px 16px rgba(0,0,0,.45);
+    animation: dome-glow .8s ease-in-out infinite;
+  }
+  @keyframes dome-glow {
+    0%, 100% { box-shadow: 0 0 18px 2px rgba(230,50,38,.35), inset 0 -8px 16px rgba(0,0,0,.45); }
+    50%      { box-shadow: 0 0 60px 16px rgba(255,70,50,.8), inset 0 -8px 16px rgba(0,0,0,.3); }
+  }
+  /* miroir qui tourne à l'intérieur */
+  .reflector {
+    position: absolute; left: 50%; bottom: 8%; width: 46%; height: 70%;
+    transform: translateX(-50%);
+    background: radial-gradient(ellipse at 50% 60%, #fff6e8 0%, #ffb3a6 25%, rgba(255,90,70,.7) 50%, transparent 72%);
+    animation: reflector-spin .8s linear infinite;
+  }
+  @keyframes reflector-spin {
+    0%   { transform: translateX(-50%) scaleX(1);   opacity: 1; }
+    25%  { transform: translateX(-50%) scaleX(.08); opacity: .35; }
+    50%  { transform: translateX(-50%) scaleX(1);   opacity: 1; }
+    75%  { transform: translateX(-50%) scaleX(.08); opacity: .35; }
+    100% { transform: translateX(-50%) scaleX(1);   opacity: 1; }
+  }
+  /* reflet sur le verre */
+  .glass {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 22%, rgba(255,255,255,.55) 0 7%, transparent 22%),
+                linear-gradient(90deg, rgba(0,0,0,.35), transparent 30%, transparent 70%, rgba(0,0,0,.4));
+  }
+  /* grille métallique de protection */
+  .cage {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(transparent 46%, #2a2b2e 46% 52%, transparent 52%),
+      repeating-linear-gradient(90deg, transparent 0 19%, #2a2b2e 19% 23%);
+    opacity: .85;
+  }
+  .base {
+    position: relative; z-index: 1; display: flex; justify-content: space-around; align-items: center;
+    height: clamp(16px, 2.6vw, 24px); margin: 0 -10%; border-radius: 3px;
+    background: linear-gradient(#55585d, #2b2d30 55%, #1a1b1d);
+    box-shadow: 0 6px 14px rgba(0,0,0,.6);
+  }
+  .base span { width: 6px; height: 6px; border-radius: 50%; background: #8a8d92; box-shadow: inset 0 1px 1px rgba(0,0,0,.6); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .beams, .dome, .reflector { animation: none; }
+  }
+
+  section { padding: 56px 0; border-top: 1px solid var(--olive-2); }
+  h2 {
+    font-family: 'Big Shoulders Stencil Display', Impact, sans-serif; font-weight: 700;
+    font-size: 44px; line-height: 1; margin: 0 0 24px; color: var(--khaki);
+  }
+
+  /* Rejoindre */
+  ol.steps { padding-left: 1.4em; max-width: 40em; margin: 0; }
+  ol.steps li { margin-bottom: 10px; }
+  ol.steps li::marker { color: var(--red); font-weight: 600; }
+
+  /* Mods */
+  .mods { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px 40px; }
+  .mods h3 { font-size: 17px; margin: 0 0 8px; color: var(--red); }
+  .mods ul { list-style: none; margin: 0; padding: 0; }
+  .mods li { padding: 5px 0; border-bottom: 1px dashed var(--olive-2); }
+  .mods li span { color: var(--khaki-dim); font-size: 15px; }
+  .note { color: var(--khaki-dim); font-size: 15px; margin-top: 28px; max-width: 42em; }
+
+  /* Discord */
+  .discord p { max-width: 36em; margin: 0 0 24px; }
+
+  footer { border-top: 1px solid var(--olive-2); padding: 28px 0 40px; color: var(--khaki-dim); font-size: 14px; }
+  footer a { color: var(--khaki-dim); }
+
+  @media (max-width: 560px) {
+    .hero { padding: 40px 0 56px; }
+    h2 { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+<div class="tape" aria-hidden="true"></div>
+
+<div class="wrap">
+  <nav>
+    <a class="logo" href="/">ZONE ROUGE</a>
+    <div class="other">
+      <a href="abi.html">Arena Breakout</a>
+      <a href="tarkov.html">Quêtes Tarkov</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="title-row">
+      <h1>ZONE<br>ROUGE</h1>
+      <div class="alarm" aria-hidden="true">
+        <div class="beams"></div>
+        <div class="crime crime-a"><div class="crime-text"><span>ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; </span><span>ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; </span></div></div>
+        <div class="crime crime-b"><div class="crime-text"><span>ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; </span><span>ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; </span></div></div>
+        <div class="dome">
+          <div class="reflector"></div>
+          <div class="glass"></div>
+          <div class="cage"></div>
+        </div>
+        <div class="base"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+    </div>
+    <p class="lead">Serveur DayZ français sur Chernarus. Des bandits IA patrouillent les zones militaires : joue en équipe, construis ta base et survis.</p>
+    <ul class="tags">
+      <li>Chernarus+</li>
+      <li>PVP</li>
+      <li>50 joueurs</li>
+      <li>Bots IA</li>
+      <li>Équipes</li>
+      <li>Toutes les armes</li>
+      <li>Gear Paragon</li>
+    </ul>
+    <div class="ip-box">
+      <div class="server-name">[FR] ZONE ROUGE | PVP | Team/IA Bots/All Weapons/Gear Paragon</div>
+      <div class="label">Adresse du serveur</div>
+      <code id="ip">147.93.160.206:2502</code>
+      <button type="button" id="copy">Copier l'IP</button>
+    </div>
+  </header>
+
+  <section id="discord" class="discord">
+    <h2>Discord et règles</h2>
+    <p>Les règles du serveur, les annonces et la recherche d'équipe se passent sur le Discord. Lis les règles avant ta première connexion.</p>
+    <a class="btn" href="https://discord.gg/PrnRZdXVT" target="_blank" rel="noopener">Rejoindre le Discord</a>
+  </section>
+
+  <section id="rejoindre">
+    <h2>Rejoindre</h2>
+    <ol class="steps">
+      <li>Ouvre le <strong>launcher DayZ</strong> depuis Steam.</li>
+      <li>Onglet <strong>Serveurs</strong>, cherche « ZONE ROUGE » ou colle l'IP dans l'onglet Direct.</li>
+      <li>Clique sur <strong>Jouer</strong> : le launcher télécharge et active tous les mods automatiquement.</li>
+      <li>Le premier téléchargement est long, les suivants ne prennent que les mises à jour.</li>
+    </ol>
+  </section>
+
+  <section id="mods">
+    <h2>Mods du serveur</h2>
+    <div class="mods">
+      <div>
+        <h3>DayZ Expansion</h3>
+        <ul>
+          <li>Core <span>— la base d'Expansion</span></li>
+          <li>Licensed</li>
+          <li>AI <span>— bandits armés</span></li>
+          <li>Groups <span>— équipes</span></li>
+          <li>Navigation <span>— carte et marqueurs</span></li>
+          <li>BaseBuilding</li>
+          <li>Spawn Selection <span>— choix du spawn</span></li>
+          <li>Animations</li>
+          <li>Book <span>— infos du serveur en jeu</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Armes et équipement</h3>
+        <ul>
+          <li>EDO Weapons</li>
+          <li>Ammunition Expansion</li>
+          <li>Paragon Gear and Armor</li>
+        </ul>
+        <h3 style="margin-top:28px">Carte et constructions</h3>
+        <ul>
+          <li>Krasnostav Mapping</li>
+          <li>DayZ Editor Loader</li>
+          <li>Builder Items</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Gameplay</h3>
+        <ul>
+          <li>Code Lock <span>— cadenas à code</span></li>
+          <li>Airdrop Upgraded <span>— largages</span></li>
+          <li>Autorun</li>
+          <li>Map Circle Marker</li>
+          <li>PercentHub</li>
+        </ul>
+        <h3 style="margin-top:28px">Outils</h3>
+        <ul>
+          <li>Community Framework (CF)</li>
+          <li>VPPAdminTools</li>
+          <li>GameLabs</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note">Pas besoin de les installer à la main : le launcher s'en charge quand tu rejoins le serveur.</p>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    Site de fans non officiel, sans lien avec Bohemia Interactive. — <a href="mentions-legales.html">Mentions légales</a>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var btn = document.getElementById('copy');
+    var ip = document.getElementById('ip').textContent.trim();
+    btn.addEventListener('click', function () {
+      if (!navigator.clipboard) { btn.textContent = 'Copie impossible'; return; }
+      navigator.clipboard.writeText(ip).then(function () {
+        btn.textContent = 'IP copiée';
+        setTimeout(function () { btn.textContent = "Copier l'IP"; }, 2000);
+      }, function () { btn.textContent = 'Copie impossible'; });
+    });
+  })();
+</script>
+</body>
+</html>
