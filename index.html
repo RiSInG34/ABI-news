@@ -43,11 +43,14 @@
   nav .other a:hover { color: var(--khaki); border-color: var(--khaki-dim); }
 
   /* Hero */
-  .hero { padding: 64px 0 72px; position: relative; overflow: hidden; overflow: clip; }
+  .hero { padding: 64px 0 72px; position: relative; }
+  html, body { overflow-x: hidden; }
+  nav { position: relative; z-index: 3; }
+  section, footer { position: relative; z-index: 2; background: var(--olive); }
   .hero h1, .hero p, .hero .tags, .hero .ip-box { position: relative; z-index: 2; }
   .hero h1 {
     font-family: 'Big Shoulders Stencil Display', Impact, sans-serif; font-weight: 900;
-    font-size: clamp(72px, 17vw, 190px); line-height: .85; margin: 0; color: var(--red);
+    font-size: clamp(52px, 15vw, 190px); line-height: .85; margin: 0; color: var(--red);
     letter-spacing: .01em;
   }
   .hero p.lead { font-size: 20px; max-width: 34em; margin: 24px 0 36px; }
@@ -65,7 +68,7 @@
   }
   .ip-box .server-name { width: 100%; font-weight: 600; font-size: 17px; padding-bottom: 12px; border-bottom: 1px solid var(--olive-2); }
   .ip-box .label { font-size: 14px; color: var(--khaki-dim); width: 100%; }
-  .ip-box code { font-family: 'Barlow', sans-serif; font-weight: 600; font-size: 24px; flex: 1; word-break: break-all; }
+  .ip-box code { font-family: 'Barlow', sans-serif; font-weight: 600; font-size: clamp(19px, 5vw, 24px); flex: 1; white-space: nowrap; }
   button, .btn {
     font: 600 16px 'Barlow', sans-serif; cursor: pointer; border: 0; border-radius: 2px;
     background: var(--red); color: #fff; padding: 12px 20px; text-decoration: none; display: inline-block;
@@ -75,15 +78,15 @@
 
   /* Rubalise scène de crime */
   .crime {
-    position: absolute; left: 50%; top: 45%; width: 1400px; z-index: 0;
+    position: absolute; left: 50%; top: 45%; width: 3000px; z-index: 0;
     background: #F2C230; color: #141414; overflow: hidden; white-space: nowrap;
     border-top: 3px solid #141414; border-bottom: 3px solid #141414;
     box-shadow: 0 8px 18px rgba(0,0,0,.55);
     font: 700 clamp(13px, 1.6vw, 17px)/1 'Barlow', sans-serif; letter-spacing: .08em;
     padding: .55em 0;
   }
-  .crime-a { transform: translate(-50%, -50%) rotate(-16deg); }
-  .crime-b { transform: translate(-50%, -50%) rotate(11deg); background: #E8B91F; }
+  .crime-a { transform: translate(-50%, -50%) rotate(-8deg); }
+  .crime-b { transform: translate(-50%, -50%) rotate(6deg); background: #E8B91F; }
   .crime-text { display: inline-flex; animation: tape-scroll 40s linear infinite; }
   .crime-b .crime-text { animation-direction: reverse; animation-duration: 55s; }
   @keyframes tape-scroll { to { transform: translateX(-50%); } }
@@ -91,7 +94,7 @@
 
   /* Gyrophare d'alarme */
   .title-row { display: flex; align-items: center; gap: clamp(28px, 6vw, 72px); }
-  .alarm { position: relative; width: clamp(80px, 13vw, 130px); flex-shrink: 0; }
+  .alarm { position: relative; width: clamp(56px, 13vw, 130px); flex-shrink: 0; margin-right: 8px; }
 
   /* faisceaux lumineux qui balaient la page */
   .beams {
@@ -205,8 +208,8 @@
       <h1>ZONE<br>ROUGE</h1>
       <div class="alarm" aria-hidden="true">
         <div class="beams"></div>
-        <div class="crime crime-a"><div class="crime-text"><span>ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; </span><span>ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; </span></div></div>
-        <div class="crime crime-b"><div class="crime-text"><span>ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; </span><span>ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; </span></div></div>
+        <div class="crime crime-a"><div class="crime-text"><span>ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; </span><span>ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; </span></div></div>
+        <div class="crime crime-b"><div class="crime-text"><span>ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; </span><span>ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; ZONE ROUGE &nbsp;⚠&nbsp; NE PAS FRANCHIR &nbsp;⚠&nbsp; </span></div></div>
         <div class="dome">
           <div class="reflector"></div>
           <div class="glass"></div>
@@ -214,7 +217,6 @@
         </div>
         <div class="base"><span></span><span></span><span></span></div>
       </div>
-    </div>
     </div>
     <p class="lead">Serveur DayZ français sur Chernarus. Des bandits IA patrouillent les zones militaires : joue en équipe, construis ta base et survis.</p>
     <ul class="tags">
