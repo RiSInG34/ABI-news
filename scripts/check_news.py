@@ -72,7 +72,12 @@ def fetch_steam_rss() -> list[dict]:
     with urllib.request.urlopen(req, timeout=30) as resp:
         raw = resp.read()
 
-    root = ET.fromstring(raw)
+    text = raw.decode("utf-8", errors="replace") if isinstance(raw, bytes) else raw
+    # Retire les caractères invisibles interdits en XML
+    text = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f]", "", text)
+    # Corrige les « & » isolés mal encodés
+    text = re.sub(r"&(?!(?:[a-zA-Z]+|#\d+|#x[0-9a-fA-F]+);)", "&amp;", text)
+    root = ET.fromstring(text)
     items = []
     for item in root.findall(".//item"):
         guid = (item.findtext("guid") or item.findtext("link") or "").strip()
